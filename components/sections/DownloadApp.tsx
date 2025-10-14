@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export function DownloadApp() {
+  const appURL = process.env.APP_URL;
+
   return (
     <section className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-[length:200%_100%] animate-gradient-x py-20">
       <div className="container mx-auto px-4">
@@ -16,7 +18,7 @@ export function DownloadApp() {
               Download Aplikasi Adzka Reload dan bergabung dengan ribuan member diseluruh Indonesia
             </p>
             <Link
-              href="https://play.google.com/store/apps/details?id=com.otoreport.apkadzkareload"
+              href={appURL || "#"}
               target="_blank"
               className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-blue-600 font-medium hover:bg-gray-100 transition-colors"
             >

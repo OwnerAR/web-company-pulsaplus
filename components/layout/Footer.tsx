@@ -8,16 +8,18 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const csWA = process.env.CONTACT_WA;
+  const appURL = process.env.APP_URL;
 
   const mainLinks = [
     {
       name: "CS Whatsapp",
-      href: "https://wa.me/6285888444608",
+      href: `https://wa.me/${csWA}`,
       icon: faWhatsapp,
     },
     {
       name: "Download Apps",
-      href: "https://play.google.com/store/apps/details?id=com.otoreport.adzkanew",
+      href: appURL,
       icon: faDownload,
     },
   ];

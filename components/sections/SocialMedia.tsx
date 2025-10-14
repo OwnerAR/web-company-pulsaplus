@@ -5,6 +5,8 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 
 export function SocialMedia() {
+  const csWA = process.env.CONTACT_WA;
+
   return (
     <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x py-20">
       <div className="container mx-auto px-4">
@@ -19,7 +21,7 @@ export function SocialMedia() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
           <a
-            href="https://wa.me/6285888444608"
+            href={`https://wa.me/${csWA}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white rounded-lg p-8 hover:shadow-xl transition-shadow"

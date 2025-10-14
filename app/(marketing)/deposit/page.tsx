@@ -7,6 +7,8 @@ export const metadata: Metadata = {
 };
 
 export default function DepositPage() {
+  const csWA = process.env.CONTACT_WA;
+
   return (
     <div className="min-h-screen bg-gray-50 py-16 sm:py-20">
       <div className="container mx-auto px-4 max-w-7xl">
@@ -113,7 +115,7 @@ export default function DepositPage() {
             Hubungi customer service kami untuk bantuan deposit
           </p>
           <a
-            href="https://wa.me/6285888444608"
+            href={`https://wa.me/${csWA}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-lg bg-white px-6 sm:px-8 py-3 sm:py-4 text-blue-600 font-semibold hover:bg-gray-100 active:bg-gray-200 transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"

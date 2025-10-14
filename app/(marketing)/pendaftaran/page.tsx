@@ -7,6 +7,8 @@ export const metadata: Metadata = {
 };
 
 export default function PendaftaranPage() {
+  const csWA = process.env.CONTACT_WA;
+
   return (
     <div className="py-20">
       <div className="container mx-auto px-4">
@@ -189,7 +191,7 @@ export default function PendaftaranPage() {
             Hubungi customer service kami untuk bantuan pendaftaran
           </p>
           <a
-            href="https://wa.me/6285888444608"
+            href={`https://wa.me/${csWA}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-blue-600 font-medium hover:bg-gray-100 transition-colors"

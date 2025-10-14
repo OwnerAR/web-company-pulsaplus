@@ -5,6 +5,7 @@ import { faMobileAlt, faMoneyBillWave, faBolt } from "@fortawesome/free-solid-sv
 
 export function HargaClient() {
   const priceIframeUrl = process.env.NEXT_PUBLIC_PRICE_IFRAME_URL;
+  const appURL = process.env.APP_URL;
 
   return (
     <div className="py-20">
@@ -68,7 +69,7 @@ export function HargaClient() {
             Download aplikasi Adzka Reload sekarang dan nikmati kemudahan transaksi
           </p>
           <a
-            href="https://play.google.com/store/apps/details?id=com.otoreport.apkadzkareload"
+            href={appURL || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-blue-600 font-medium hover:bg-gray-100 transition-colors"

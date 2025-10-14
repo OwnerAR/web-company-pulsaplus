@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export function HeroApp() {
+  const appURL = process.env.APP_URL;
+
   return (
     <section className="bg-white py-20 sm:py-32 relative overflow-hidden">
       {/* Background Pattern */}
@@ -30,7 +32,7 @@ export function HeroApp() {
               Bersama Adzka Reload, tambahkan produk, dorong penjualan, tingkatkan penghasilan.
             </p>
             <Link
-              href="https://play.google.com/store/apps/details?id=com.otoreport.apkadzkareload"
+              href={appURL || "#"}
               target="_blank"
               className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition-colors"
             >
