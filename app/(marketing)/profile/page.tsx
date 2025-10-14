@@ -88,16 +88,16 @@ export default function ProfilePage() {
             <div className="text-gray-600">Tahun Pengalaman</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
-            <div className="text-gray-600">Project Selesai</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2">50000+</div>
+            <div className="text-gray-600">Transaksi Berhasil</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-blue-600 mb-2">200+</div>
-            <div className="text-gray-600">Klien Puas</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2">10000+</div>
+            <div className="text-gray-600">Klien Setia</div>
           </div>
           <div>
-            <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
-            <div className="text-gray-600">Tim Profesional</div>
+            <div className="text-4xl font-bold text-blue-600 mb-2">100+</div>
+            <div className="text-gray-600">Tim Kami</div>
           </div>
         </div>
       </div>
