@@ -356,6 +356,179 @@ PT.Adzka Media Indoperkasa
 ?>`}
               </pre>
             </div>
+
+            {/* cURL Examples */}
+            <div className="rounded-lg border bg-white p-6">
+              <h3 className="font-semibold mb-3">Transaksi dengan cURL</h3>
+              <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+{`# Transaksi tanpa signature (dengan pin & password)
+curl "${apiBaseUrl}/trx?product=DN50&qty=1&dest=081234567890&refID=TRX123456&memberID=YOUR_MEMBER_ID&pin=YOUR_PIN&password=YOUR_PASSWORD"
+
+# Cek Saldo
+curl "${apiBaseUrl}/balance?memberID=YOUR_MEMBER_ID&sign=YOUR_SIGNATURE"
+
+# Request Tiket Deposit
+curl "${apiBaseUrl}/ticket?memberID=YOUR_MEMBER_ID&amount=1000000&sign=YOUR_SIGNATURE"`}
+              </pre>
+            </div>
+
+            {/* HTTPS cURL Example */}
+            <div className="rounded-lg border bg-white p-6">
+              <h3 className="font-semibold mb-3">cURL dengan HTTPS (Lengkap)</h3>
+              <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+{`# Transaksi dengan parameter lengkap
+curl -X GET "${apiBaseUrl}/trx" \\
+  -G \\
+  --data-urlencode "product=DN50" \\
+  --data-urlencode "qty=1" \\
+  --data-urlencode "dest=081234567890" \\
+  --data-urlencode "refID=TRX123456" \\
+  --data-urlencode "memberID=YOUR_MEMBER_ID" \\
+  --data-urlencode "pin=YOUR_PIN" \\
+  --data-urlencode "password=YOUR_PASSWORD"
+
+# Response:
+# status=1&message=Transaksi DN50.081234567890 Harga=50.090 akan diproses..`}
+              </pre>
+            </div>
+          </div>
+
+          {/* Response Parsing Section */}
+          <div className="mt-16">
+            <h2 className="text-3xl font-bold mb-6">Cara Menangkap Response</h2>
+            <p className="text-gray-600 mb-6">
+              Gunakan regex pattern berikut untuk parsing response dari callback:
+            </p>
+
+            <div className="space-y-6">
+              {/* Regex for GAGAL */}
+              <div className="rounded-lg border bg-white p-6">
+                <div className="mb-4">
+                  <span className="px-3 py-1 rounded text-sm font-semibold bg-red-100 text-red-700">
+                    Kata Kunci: Gagal
+                  </span>
+                </div>
+                <h4 className="font-semibold mb-2">Regex Pattern:</h4>
+                <code className="block bg-gray-100 p-3 rounded text-sm mb-4 overflow-x-auto">
+                  {`(?<product>\\w+).(?<tujuan>\\d+) GAGAL. . Saldo (?<saldo>[.,\\d]+). @`}
+                </code>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <strong>Captured Groups:</strong>
+                    <ul className="mt-2 space-y-1 text-gray-600">
+                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">product</code> - Kode produk</li>
+                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">tujuan</code> - Nomor tujuan</li>
+                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">saldo</code> - Saldo terakhir</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <strong>Contoh Response:</strong>
+                    <pre className="mt-2 bg-red-50 p-2 rounded text-xs overflow-x-auto">
+{`DC12.081234567890 GAGAL. . 
+Saldo 1.244.692. @19.06.42`}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+
+              {/* Regex for PROSES */}
+              <div className="rounded-lg border bg-white p-6">
+                <div className="mb-4">
+                  <span className="px-3 py-1 rounded text-sm font-semibold bg-yellow-100 text-yellow-700">
+                    Kata Kunci: proses
+                  </span>
+                </div>
+                <h4 className="font-semibold mb-2">Regex Pattern:</h4>
+                <code className="block bg-gray-100 p-3 rounded text-sm mb-4 overflow-x-auto">
+                  {`status=1&message=Transaksi (?<product>\\w+).(?<tujuan>\\d+) Harga=(?<hargabeli>[.,\\d]+) akan diproses..`}
+                </code>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <strong>Captured Groups:</strong>
+                    <ul className="mt-2 space-y-1 text-gray-600">
+                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">product</code> - Kode produk</li>
+                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">tujuan</code> - Nomor tujuan</li>
+                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">hargabeli</code> - Harga beli</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <strong>Contoh Response:</strong>
+                    <pre className="mt-2 bg-yellow-50 p-2 rounded text-xs overflow-x-auto">
+{`status=1&message=Transaksi 
+DN50.081234567890 Harga=50.090 
+akan diproses..`}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+
+              {/* Regex for SUKSES */}
+              <div className="rounded-lg border bg-white p-6">
+                <div className="mb-4">
+                  <span className="px-3 py-1 rounded text-sm font-semibold bg-green-100 text-green-700">
+                    Kata Kunci: SUKSES
+                  </span>
+                </div>
+                <h4 className="font-semibold mb-2">Regex Pattern:</h4>
+                <code className="block bg-gray-100 p-3 rounded text-sm mb-4 overflow-x-auto">
+                  {`refid=(?<trxid>\\d+)&status=20&price=(?<hargabeli>\\d+)&message=.*. SN/Ref: (?<sn>.+). Saldo`}
+                </code>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <strong>Captured Groups:</strong>
+                    <ul className="mt-2 space-y-1 text-gray-600">
+                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">trxid</code> - Transaction ID</li>
+                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">hargabeli</code> - Harga beli</li>
+                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">sn</code> - Serial Number/Ref</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <strong>Contoh Response:</strong>
+                    <pre className="mt-2 bg-green-50 p-2 rounded text-xs overflow-x-auto">
+{`refid=44474&status=20&price=0
+&message=DN50.081234567890 SUKSES. 
+SN/Ref: DNID AISXX/50000/... 
+Saldo 14.324.472`}
+                    </pre>
+                  </div>
+                </div>
+              </div>
+
+              {/* PHP Parsing Example */}
+              <div className="rounded-lg border bg-blue-50 p-6">
+                <h3 className="font-semibold mb-3">Contoh Parsing Response dengan PHP:</h3>
+                <pre className="bg-white p-4 rounded text-sm overflow-x-auto">
+{`<?php
+$response = "refid=44474&status=20&price=0&message=DN50.081234567890 SUKSES. SN/Ref: DNID123.. Saldo 14.324.472";
+
+// Check status transaksi
+if (strpos($response, 'SUKSES') !== false) {
+    // Parse dengan regex
+    $pattern = '/refid=(?<trxid>\\d+)&status=20&price=(?<hargabeli>\\d+)&message=.*. SN\\/Ref: (?<sn>.+). Saldo/';
+    if (preg_match($pattern, $response, $matches)) {
+        echo "Transaction ID: " . $matches['trxid'] . "\\n";
+        echo "Harga Beli: " . $matches['hargabeli'] . "\\n";
+        echo "Serial Number: " . $matches['sn'] . "\\n";
+    }
+} elseif (strpos($response, 'GAGAL') !== false) {
+    $pattern = '/(?<product>\\w+).(?<tujuan>\\d+) GAGAL. . Saldo (?<saldo>[.,\\d]+). @/';
+    if (preg_match($pattern, $response, $matches)) {
+        echo "Product: " . $matches['product'] . "\\n";
+        echo "Tujuan: " . $matches['tujuan'] . "\\n";
+        echo "Saldo: " . $matches['saldo'] . "\\n";
+    }
+} elseif (strpos($response, 'status=1') !== false) {
+    $pattern = '/status=1&message=Transaksi (?<product>\\w+).(?<tujuan>\\d+) Harga=(?<hargabeli>[.,\\d]+) akan diproses../';
+    if (preg_match($pattern, $response, $matches)) {
+        echo "Product: " . $matches['product'] . "\\n";
+        echo "Tujuan: " . $matches['tujuan'] . "\\n";
+        echo "Harga Beli: " . $matches['hargabeli'] . "\\n";
+    }
+}
+?>`}
+                </pre>
+              </div>
+            </div>
           </div>
 
           {/* Important Notes */}
