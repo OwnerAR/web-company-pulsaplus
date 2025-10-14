@@ -10,7 +10,7 @@ export function HargaClient() {
     <div className="py-20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-2xl p-12 mb-12 text-center">
+        <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-12 mb-12 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Harga</h1>
           <p className="text-white/90 text-lg">
             Daftar harga produk Adzka Media Indoperkasa terlengkap dan termurah
@@ -60,7 +60,7 @@ export function HargaClient() {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12">
+        <div className="mt-12 text-center bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-12">
           <h2 className="text-3xl font-bold text-white mb-4">
             Tertarik untuk Bergabung?
           </h2>

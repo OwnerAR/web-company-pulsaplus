@@ -6,7 +6,7 @@ import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 
 export function SocialMedia() {
   return (
-    <section className="bg-gradient-to-r from-blue-600 to-blue-700 py-20">
+    <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x py-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">

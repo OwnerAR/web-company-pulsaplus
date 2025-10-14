@@ -23,7 +23,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
+    <footer className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}

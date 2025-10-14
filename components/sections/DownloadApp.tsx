@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function DownloadApp() {
   return (
-    <section className="bg-gradient-to-r from-blue-600 to-indigo-600 py-20">
+    <section className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-[length:200%_100%] animate-gradient-x py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
