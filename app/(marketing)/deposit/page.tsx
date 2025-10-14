@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function DepositPage() {
-  const csWA = process.env.CONTACT_WA;
+  const csWA = process.env.NEXT_PUBLIC_CONTACT_WA;
 
   return (
     <div className="min-h-screen bg-gray-50 py-16 sm:py-20">

@@ -5,7 +5,7 @@ import { faMobileAlt, faMoneyBillWave, faBolt } from "@fortawesome/free-solid-sv
 
 export function HargaClient() {
   const priceIframeUrl = process.env.NEXT_PUBLIC_PRICE_IFRAME_URL;
-  const appURL = process.env.APP_URL;
+  const appURL = process.env.NEXT_PUBLIC_APP_URL;
 
   return (
     <div className="py-20">

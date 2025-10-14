@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 export default function PendaftaranPage() {
-  const csWA = process.env.CONTACT_WA;
+  const csWA = process.env.NEXT_PUBLIC_CONTACT_WA;
 
   return (
     <div className="py-20">

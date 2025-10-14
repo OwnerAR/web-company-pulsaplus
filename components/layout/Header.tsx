@@ -34,7 +34,7 @@ export function Header() {
               className="h-12 w-auto"
               priority
             />
-            <span className="text-2xl font-bold text-white">
+            <span className="hidden md:inline text-2xl font-bold text-white">
               Adzka Media Indoperkasa
             </span>
           </Link>

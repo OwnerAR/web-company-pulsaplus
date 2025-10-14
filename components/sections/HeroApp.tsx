@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export function HeroApp() {
-  const appURL = process.env.APP_URL;
+  const appURL = process.env.NEXT_PUBLIC_APP_URL;
 
   return (
     <section className="bg-white py-20 sm:py-32 relative overflow-hidden">

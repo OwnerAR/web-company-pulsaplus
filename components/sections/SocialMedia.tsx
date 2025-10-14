@@ -5,7 +5,7 @@ import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 
 export function SocialMedia() {
-  const csWA = process.env.CONTACT_WA;
+  const csWA = process.env.NEXT_PUBLIC_CONTACT_WA;
 
   return (
     <section className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x py-20">

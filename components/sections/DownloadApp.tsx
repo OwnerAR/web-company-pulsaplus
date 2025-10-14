@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export function DownloadApp() {
-  const appURL = process.env.APP_URL;
+  const appURL = process.env.NEXT_PUBLIC_APP_URL;
 
   return (
     <section className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-[length:200%_100%] animate-gradient-x py-20">

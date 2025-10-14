@@ -8,8 +8,8 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const csWA = process.env.CONTACT_WA;
-  const appURL = process.env.APP_URL;
+  const csWA = process.env.NEXT_PUBLIC_CONTACT_WA;
+  const appURL = process.env.NEXT_PUBLIC_APP_URL;
 
   const mainLinks = [
     {
