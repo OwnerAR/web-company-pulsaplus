@@ -2,10 +2,14 @@
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook, faCode, faKey, faPlug } from "@fortawesome/free-solid-svg-icons";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export function ApiDocsClient() {
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.adzkamedia.com';
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'api@adzkamedia.com';
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.adzka.co.id';
+  const oidCenter = process.env.NEXT_PUBLIC_OID_CENTER || '019008';
+  const jabberID = process.env.NEXT_PUBLIC_JABBER_ID || 'info@adzka.co.id';
+  const waCenter = process.env.NEXT_PUBLIC_WA_CENTER || '085888444608';
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@adzka.co.id';
 
   const endpoints = [
     {
@@ -63,80 +67,232 @@ PT.Adzka Media Indoperkasa`,
     },
   ];
 
+  const formatWA = [
+    {
+      "name": "Tiket Deposit",
+      "format": "TIKET.[nominal].[pin]",
+      "description": "Format untuk request tiket deposit"
+    },
+    {
+      "name": "Cek Saldo",
+      "format": "SALDO",
+      "description": "Format untuk request cek saldo"
+    },
+    {
+      "name": "Cek Harga",
+      "format": "CH.[kodeproduk]",
+      "description": "Format untuk request cek harga"
+    },
+    {
+      "name": "Ubah PIN",
+      "format": "GP.[pinbaru].[pinlama]",
+      "description": "Format untuk request ubah PIN"
+    },
+    {
+      "name": "Ubah Password",
+      "format": "PASSIP*[oldpassword]*[newpassword]*[pin]",
+      "description": "Format untuk request ubah password"
+    },
+    {
+      "name": "Ubah Alamat IP",
+      "format": "IPADDRESS*[newip]*[pin]",
+      "description": "Format untuk request ubah alamat IP"
+    },
+    {
+      "name": "Ubah URL Callback",
+      "format": "REPORTURL*[newurl]*[pin]",
+      "description": "Format untuk request ubah URL callback"
+    }
+  ];
+  // response list untuk match response dari API dengan regex pattern Captured Groups
+  const responseList = [
+    {
+      "name": "Transaksi Masuk Antrian",
+      "response": "status=1&message=Transaksi DN50.081234567890 Harga=10.000 akan diproses..",
+      "regexPattern": "Transaksi (?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) Harga=(?<harga>[.,\\d]+) akan diproses",
+      "capturedGroups": ["kodeproduk", "tujuan", "harga"],
+      "color": "yellow"
+    },
+    {
+      "name": "Transaksi Non Fisik Sukses",
+      "response": "DN50.081234567890 SUKSES. SN/Ref: DNID AISXX/50000/2025101410121481030100166869912144199. Saldo 14.324.472 - 10.000 = 14.314.472  #Telkomsel",
+      "regexPattern": "(?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) SUKSES\\. SN/Ref: (?<sn>.+?)\\. Saldo (?<saldolama>[.,\\d]+) - (?<harga>[.,\\d]+) = (?<saldo>[.,\\d]+)\\s+#(?<namaproduk>.+)",
+      "capturedGroups": ["kodeproduk", "tujuan", "sn", "saldolama", "harga", "saldo", "namaproduk"],
+      "color": "green"
+    },
+    {
+      "name": "Transaksi Fisik Sukses",
+      "response": "TrxDN50.081234567890 SUKSES. SN/Ref: DNID AISXX/50000/202510. Saldo 14.324.472-10.000=14.314.472 @14.10.25",
+      "regexPattern": "Trx(?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) SUKSES\\. SN/Ref: (?<sn>.+?)\\. Saldo (?<saldolama>[.,\\d]+)-(?<harga>[.,\\d]+)=(?<saldo>[.,\\d]+) @(?<now>.+)",
+      "capturedGroups": ["kodeproduk", "tujuan", "sn", "saldolama", "harga", "saldo", "now"],
+      "color": "green"
+    },
+    {
+      "name": "Transaksi Gagal",
+      "response": "DN50.081234567890 GAGAL. Nomor tidak terdaftar. Saldo 1.244.692. @19.06.42",
+      "regexPattern": "(?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) GAGAL\\. (?<keterangan>.+?)\\. Saldo (?<saldo>[.,\\d]+)\\. @(?<systime>.+)",
+      "capturedGroups": ["kodeproduk", "tujuan", "keterangan", "saldo", "systime"],
+      "color": "red"
+    },
+    {
+      "name": "Transaksi Dibatalkan Operator",
+      "response": "DN50.081234567890 pd 19.06.42 gagal, dibatalkan. Saldo refund 10.000. Sal 1.254.692",
+      "regexPattern": "(?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) pd (?<waktu>.+?) gagal, dibatalkan\\. Saldo refund (?<harga>[.,\\d]+)\\. Sal (?<saldo>[.,\\d]+)",
+      "capturedGroups": ["kodeproduk", "tujuan", "waktu", "harga", "saldo"],
+      "color": "red"
+    },
+    {
+      "name": "Transaksi Timeout",
+      "response": "R#44474 Telkomsel DN50.081234567890 GAGAL karena timeout. Saldo 1.244.692 @19.06.42",
+      "regexPattern": "R#(?<refid>\\d+) (?<namaproduk>.+?) (?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) GAGAL karena timeout\\. Saldo (?<saldo>[.,\\d]+) @(?<systime>.+)",
+      "capturedGroups": ["refid", "namaproduk", "kodeproduk", "tujuan", "saldo", "systime"],
+      "color": "red"
+    },
+    {
+      "name": "Transaksi Gagal Karena Daftar Hitam",
+      "response": "Telkomsel DN50.081234567890 GAGAL. Nomor tidak dapat diproses, mohon coba lagi besok. Saldo 1.244.692",
+      "regexPattern": "(?<namaproduk>.+?) (?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) GAGAL\\. Nomor tidak dapat diproses, mohon coba lagi besok\\. Saldo (?<saldo>[.,\\d]+)",
+      "capturedGroups": ["namaproduk", "kodeproduk", "tujuan", "saldo"],
+      "color": "red"
+    },
+    {
+      "name": "Saldo Tidak Cukup",
+      "response": "DN50.081234567890 GAGAL. Saldo tidak cukup, Sisa Saldo Anda Rp. 1.244.692,Silakan isi saldo anda terlebih dahulu",
+      "regexPattern": "(?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) GAGAL\\. Saldo tidak cukup, Sisa Saldo Anda Rp\\. (?<saldo>[.,\\d]+),Silakan isi saldo",
+      "capturedGroups": ["kodeproduk", "tujuan", "saldo"],
+      "color": "red"
+    },
+    {
+      "name": "Transaksi Gagal Karena Dobel",
+      "response": "Trx DN50.081234567890 sdh Terjadi Pada:19.06.42, sts SUKSES SN: DNID123. saldo=1.244.692",
+      "regexPattern": "Trx (?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) sdh Terjadi Pada:(?<waktu>.+?), sts (?<status>\\w+) SN: (?<sn>.+?)\\. saldo=(?<saldo>[.,\\d]+)",
+      "capturedGroups": ["kodeproduk", "tujuan", "waktu", "status", "sn", "saldo"],
+      "color": "orange"
+    },
+    {
+      "name": "Transaksi Masih Dalam Proses",
+      "response": "Transaksi.DN50.081234567890 masih dalam proses. Mohon ditunggu!!",
+      "regexPattern": "Transaksi\\.(?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) masih dalam proses",
+      "capturedGroups": ["kodeproduk", "tujuan"],
+      "color": "yellow"
+    },
+    {
+      "name": "Tunggu Transaksi Sebelumnya",
+      "response": "Yth John Doe,Transaksi.DN50.081234567890 masih dalam proses. Mohon ditunggu!!",
+      "regexPattern": "Yth (?<namareseller>.+?),Transaksi\\.(?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) masih dalam proses",
+      "capturedGroups": ["namareseller", "kodeproduk", "tujuan"],
+      "color": "yellow"
+    }
+  ];
+
   return (
-    <div className="py-20">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-gray-50 py-16 sm:py-20">
+      <div className="container mx-auto px-4 max-w-7xl">
         {/* Header */}
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <h1 className="text-4xl font-bold mb-6">Dokumentasi API</h1>
-          <p className="text-lg text-gray-600">
+        <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-8 sm:p-12 mb-12 text-center shadow-xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">Dokumentasi API</h1>
+          <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto">
             Dokumentasi lengkap untuk integrasi API layanan Adzka Media Indoperkasa
           </p>
         </div>
 
         {/* Quick Start */}
-        <div className="mb-16">
-          <div className="rounded-lg border bg-white p-8 shadow-sm">
-            <div className="flex items-center mb-4">
-              <FontAwesomeIcon
-                icon={faBook}
-                className="h-6 w-6 text-blue-600 mr-3"
-              />
-              <h2 className="text-2xl font-bold">Getting Started</h2>
+        <div className="mb-12">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow">
+            <div className="flex items-center mb-6">
+              <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
+                <FontAwesomeIcon
+                  icon={faBook}
+                  className="h-6 w-6 text-blue-600"
+                />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Getting Started</h2>
             </div>
 
-            <div className="space-y-4">
-              <div>
-                <h3 className="font-semibold mb-2">Base URL</h3>
-                <code className="block bg-gray-100 p-3 rounded text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 className="font-semibold mb-2 text-gray-700 flex items-center">
+                  <span className="inline-block w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                  Base URL
+                </h3>
+                <code className="block bg-white border border-gray-300 p-3 rounded-lg text-sm text-blue-600 font-mono">
                   {apiBaseUrl}
                 </code>
               </div>
-
-              <div>
-                <h3 className="font-semibold mb-2">Hubungi Kami</h3>
-                <p className="text-gray-600">
-                  Untuk informasi lebih lanjut tentang API, silakan hubungi tim kami di{" "}
-                  <a href={`mailto:${contactEmail}`} className="text-blue-600 hover:underline">
-                    {contactEmail}
-                  </a>
-                </p>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 className="font-semibold mb-2 text-gray-700 flex items-center">
+                  <span className="inline-block w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                  Jabber ID
+                </h3>
+                <code className="block bg-white border border-gray-300 p-3 rounded-lg text-sm text-blue-600 font-mono">
+                  {jabberID}
+                </code>
               </div>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 className="font-semibold mb-2 text-gray-700 flex items-center">
+                  <span className="inline-block w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                  OID Center
+                </h3>
+                <code className="block bg-white border border-gray-300 p-3 rounded-lg text-sm text-blue-600 font-mono">
+                  {oidCenter}
+                </code>
+              </div>
+              <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                <h3 className="font-semibold mb-2 text-gray-700 flex items-center">
+                  <span className="inline-block w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                  Whatsapp Center
+                </h3>
+                <code className="block bg-white border border-gray-300 p-3 rounded-lg text-sm text-blue-600 font-mono">
+                  {waCenter}
+                </code>
+              </div>
+            </div>
+            
+            <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+              <h3 className="font-semibold mb-2 text-blue-900">📞 Hubungi Kami</h3>
+              <p className="text-blue-800">
+                Untuk informasi lebih lanjut tentang API, silakan hubungi tim kami di{" "}
+                <a href={`mailto:${contactEmail}`} className="text-blue-600 hover:text-blue-800 underline font-semibold">
+                  {contactEmail}
+                </a>
+              </p>
             </div>
           </div>
         </div>
 
         {/* Endpoints */}
-        <div className="mb-16">
+        <div className="mb-12">
           <div className="flex items-center mb-6">
-            <FontAwesomeIcon
-              icon={faPlug}
-              className="h-6 w-6 text-blue-600 mr-3"
-            />
-            <h2 className="text-3xl font-bold">API Endpoints</h2>
+            <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
+              <FontAwesomeIcon
+                icon={faPlug}
+                className="h-6 w-6 text-blue-600"
+              />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">API Endpoints</h2>
           </div>
 
           <div className="space-y-6">
             {endpoints.map((endpoint, index) => (
-              <div key={index} className="rounded-lg border bg-white p-6 shadow-sm">
-                <div className="mb-4">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="px-3 py-1 rounded text-sm font-semibold bg-green-100 text-green-700">
+              <div key={index} className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-all">
+                <div className="mb-6">
+                  <div className="flex flex-wrap items-center gap-3 mb-3">
+                    <span className="px-4 py-1.5 rounded-lg text-sm font-bold bg-green-100 text-green-700 border border-green-300">
                       {endpoint.method}
                     </span>
-                    <code className="text-lg font-mono">{endpoint.path}</code>
+                    <code className="text-base sm:text-lg font-mono text-gray-800 bg-gray-100 px-3 py-1 rounded">{endpoint.path}</code>
                   </div>
-                  <p className="text-gray-600">{endpoint.description}</p>
+                  <p className="text-gray-600 text-sm sm:text-base">{endpoint.description}</p>
                 </div>
 
                 {endpoint.params && (
-                  <div className="mb-4">
-                    <h4 className="font-semibold mb-2">Query Parameters:</h4>
-                    <div className="bg-gray-100 p-4 rounded text-sm space-y-2">
+                  <div className="mb-6">
+                    <h4 className="font-semibold mb-3 text-gray-900">Query Parameters:</h4>
+                    <div className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-sm space-y-2">
                       {Object.entries(endpoint.params).map(([key, value]) => (
-                        <div key={key}>
-                          <code className="text-blue-600 font-semibold">{key}</code>
-                          <span className="text-gray-600"> - {value as string}</span>
+                        <div key={key} className="flex flex-col sm:flex-row sm:items-start gap-1">
+                          <code className="text-blue-600 font-bold bg-blue-50 px-2 py-1 rounded">{key}</code>
+                          <span className="text-gray-600 sm:ml-2"> {value as string}</span>
                         </div>
                       ))}
                     </div>
@@ -146,8 +302,11 @@ PT.Adzka Media Indoperkasa`,
                 <div className="space-y-4">
                   {endpoint.responseSuccess && (
                     <div>
-                      <h4 className="font-semibold mb-2 text-green-600">Response:</h4>
-                      <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+                      <h4 className="font-semibold mb-2 text-green-700 flex items-center">
+                        <span className="inline-block w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                        Response Success:
+                      </h4>
+                      <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono">
                         {endpoint.responseSuccess}
                       </pre>
                     </div>
@@ -155,8 +314,11 @@ PT.Adzka Media Indoperkasa`,
 
                   {endpoint.responseCallback && (
                     <div>
-                      <h4 className="font-semibold mb-2 text-green-600">Response Callback:</h4>
-                      <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+                      <h4 className="font-semibold mb-2 text-green-700 flex items-center">
+                        <span className="inline-block w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                        Response Callback (Success):
+                      </h4>
+                      <pre className="bg-green-50 border border-green-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono text-green-900">
                         {endpoint.responseCallback}
                       </pre>
                     </div>
@@ -164,8 +326,11 @@ PT.Adzka Media Indoperkasa`,
 
                   {endpoint.responseFailed && (
                     <div>
-                      <h4 className="font-semibold mb-2 text-red-600">Response Callback:</h4>
-                      <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+                      <h4 className="font-semibold mb-2 text-red-700 flex items-center">
+                        <span className="inline-block w-2 h-2 bg-red-600 rounded-full mr-2"></span>
+                        Response Callback (Failed):
+                      </h4>
+                      <pre className="bg-red-50 border border-red-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono text-red-900">
                         {endpoint.responseFailed}
                       </pre>
                     </div>
@@ -176,28 +341,63 @@ PT.Adzka Media Indoperkasa`,
           </div>
         </div>
 
-        {/* Signature Generation */}
-        <div className="mb-16">
+        {/* Format WA */}
+        <div className="mb-12">
           <div className="flex items-center mb-6">
-            <FontAwesomeIcon
-              icon={faKey}
-              className="h-6 w-6 text-blue-600 mr-3"
-            />
-            <h2 className="text-3xl font-bold">Generate Signature</h2>
+            <div className="h-12 w-12 rounded-lg bg-green-100 flex items-center justify-center mr-4">
+              <FontAwesomeIcon
+                icon={faWhatsapp}
+                className="h-6 w-6 text-green-600"
+              />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Format Whatsapp</h2>
+          </div>
+          
+          <div className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {formatWA.map((item, index) => (
+                <div key={index} className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 p-4 rounded-lg hover:shadow-md transition-shadow">
+                  <h3 className="font-bold mb-2 text-gray-900 flex items-center">
+                    <span className="inline-block w-2 h-2 bg-green-600 rounded-full mr-2"></span>
+                    {item.name}
+                  </h3>
+                  <code className="block bg-white border border-green-300 p-3 rounded-lg text-sm font-mono text-green-700 mb-2">
+                    {item.format}
+                  </code>
+                  <p className="text-gray-600 text-sm">{item.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Signature Generation */}
+        <div className="mb-12">
+          <div className="flex items-center mb-6">
+            <div className="h-12 w-12 rounded-lg bg-purple-100 flex items-center justify-center mr-4">
+              <FontAwesomeIcon
+                icon={faKey}
+                className="h-6 w-6 text-purple-600"
+              />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Generate Signature</h2>
           </div>
 
-          <div className="rounded-lg border bg-white p-6">
-            <div className="mb-4">
-              <h3 className="font-semibold mb-2">Signature untuk Keamanan Transaksi</h3>
-              <p className="text-gray-600">
+          <div className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow">
+            <div className="mb-6 p-4 bg-purple-50 border border-purple-200 rounded-lg">
+              <h3 className="font-bold mb-2 text-purple-900 flex items-center">
+                <span className="inline-block w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
+                Signature untuk Keamanan Transaksi
+              </h3>
+              <p className="text-purple-800 text-sm">
                 Signature digunakan untuk meningkatkan keamanan transaksi. Jika tidak menggunakan signature, 
-                gunakan parameter <code className="bg-gray-100 px-2 py-1 rounded">pin</code> dan{' '}
-                <code className="bg-gray-100 px-2 py-1 rounded">password</code>.
+                gunakan parameter <code className="bg-purple-100 border border-purple-300 px-2 py-1 rounded text-purple-900">pin</code> dan{' '}
+                <code className="bg-purple-100 border border-purple-300 px-2 py-1 rounded text-purple-900">password</code>.
               </p>
             </div>
 
-            <h4 className="font-semibold mb-3">PHP - Generate Signature untuk Transaksi:</h4>
-            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto mb-4">
+            <h4 className="font-semibold mb-3 text-gray-900">PHP - Generate Signature untuk Transaksi:</h4>
+            <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto mb-6 font-mono">
 {`<?php
 // For transaction
 $str = 'OtomaX|' . $memberId . '|' . $product . '|' . $dest . '|' . $refID . '|' . $pin . '|' . $password;
@@ -208,8 +408,8 @@ echo $sign;
 ?>`}
             </pre>
 
-            <h4 className="font-semibold mb-3">Signature untuk Operasi Lainnya:</h4>
-            <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <h4 className="font-semibold mb-3 text-gray-900">Signature untuk Operasi Lainnya:</h4>
+            <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono">
 {`<?php
 // For deposit ticket
 // $str = 'OtomaX|ticket|' . $memberId . '|' . $pin . '|' . $password . '|' . $amount;
@@ -224,18 +424,23 @@ echo $sign;
         {/* Code Examples */}
         <div>
           <div className="flex items-center mb-6">
-            <FontAwesomeIcon
-              icon={faCode}
-              className="h-6 w-6 text-blue-600 mr-3"
-            />
-            <h2 className="text-3xl font-bold">Contoh Request</h2>
+            <div className="h-12 w-12 rounded-lg bg-indigo-100 flex items-center justify-center mr-4">
+              <FontAwesomeIcon
+                icon={faCode}
+                className="h-6 w-6 text-indigo-600"
+              />
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Contoh Request</h2>
           </div>
 
           <div className="space-y-6">
             {/* Transaction with Signature */}
-            <div className="rounded-lg border bg-white p-6">
-              <h3 className="font-semibold mb-3">Transaksi dengan Signature (PHP)</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="font-bold mb-4 text-gray-900 flex items-center">
+                <span className="inline-block w-2 h-2 bg-indigo-600 rounded-full mr-2"></span>
+                Transaksi dengan Signature (PHP)
+              </h3>
+              <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono">
 {`<?php
 $memberId = 'YOUR_MEMBER_ID';
 $product = 'DN50';
@@ -259,9 +464,12 @@ echo $response;
             </div>
 
             {/* Transaction without Signature */}
-            <div className="rounded-lg border bg-white p-6">
-              <h3 className="font-semibold mb-3">Transaksi tanpa Signature (dengan PIN & Password)</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="font-bold mb-4 text-gray-900 flex items-center">
+                <span className="inline-block w-2 h-2 bg-indigo-600 rounded-full mr-2"></span>
+                Transaksi tanpa Signature (dengan PIN & Password)
+              </h3>
+              <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono">
 {`<?php
 $url = "${apiBaseUrl}/trx?product=DN50&qty=1&dest=085934284792" .
        "&refID=TRX123456&memberID=YOUR_MEMBER_ID" .
@@ -274,9 +482,12 @@ echo $response;
             </div>
 
             {/* JavaScript Example */}
-            <div className="rounded-lg border bg-white p-6">
-              <h3 className="font-semibold mb-3">JavaScript (Fetch API)</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="font-bold mb-4 text-gray-900 flex items-center">
+                <span className="inline-block w-2 h-2 bg-yellow-600 rounded-full mr-2"></span>
+                JavaScript (Fetch API)
+              </h3>
+              <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono">
 {`const params = new URLSearchParams({
   product: 'DN50',
   qty: '1',
@@ -295,9 +506,12 @@ fetch(\`${apiBaseUrl}/trx?\${params}\`)
             </div>
 
             {/* Check Balance Example */}
-            <div className="rounded-lg border bg-white p-6">
-              <h3 className="font-semibold mb-3">Cek Saldo (PHP)</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="font-bold mb-4 text-gray-900 flex items-center">
+                <span className="inline-block w-2 h-2 bg-indigo-600 rounded-full mr-2"></span>
+                Cek Saldo (PHP)
+              </h3>
+              <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono">
 {`<?php
 $memberId = 'YOUR_MEMBER_ID';
 $pin = 'YOUR_PIN';
@@ -325,9 +539,12 @@ Informasi Akun Anda
             </div>
 
             {/* Deposit Ticket Example */}
-            <div className="rounded-lg border bg-white p-6">
-              <h3 className="font-semibold mb-3">Request Tiket Deposit (PHP)</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="font-bold mb-4 text-gray-900 flex items-center">
+                <span className="inline-block w-2 h-2 bg-indigo-600 rounded-full mr-2"></span>
+                Request Tiket Deposit (PHP)
+              </h3>
+              <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono">
 {`<?php
 $memberId = 'YOUR_MEMBER_ID';
 $pin = 'YOUR_PIN';
@@ -358,9 +575,12 @@ PT.Adzka Media Indoperkasa
             </div>
 
             {/* cURL Examples */}
-            <div className="rounded-lg border bg-white p-6">
-              <h3 className="font-semibold mb-3">Transaksi dengan cURL</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="font-bold mb-4 text-gray-900 flex items-center">
+                <span className="inline-block w-2 h-2 bg-gray-600 rounded-full mr-2"></span>
+                Transaksi dengan cURL
+              </h3>
+              <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono">
 {`# Transaksi tanpa signature (dengan pin & password)
 curl "${apiBaseUrl}/trx?product=DN50&qty=1&dest=081234567890&refID=TRX123456&memberID=YOUR_MEMBER_ID&pin=YOUR_PIN&password=YOUR_PASSWORD"
 
@@ -373,9 +593,12 @@ curl "${apiBaseUrl}/ticket?memberID=YOUR_MEMBER_ID&amount=1000000&sign=YOUR_SIGN
             </div>
 
             {/* HTTPS cURL Example */}
-            <div className="rounded-lg border bg-white p-6">
-              <h3 className="font-semibold mb-3">cURL dengan HTTPS (Lengkap)</h3>
-              <pre className="bg-gray-100 p-4 rounded text-sm overflow-x-auto">
+            <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow">
+              <h3 className="font-bold mb-4 text-gray-900 flex items-center">
+                <span className="inline-block w-2 h-2 bg-gray-600 rounded-full mr-2"></span>
+                cURL dengan HTTPS (Lengkap)
+              </h3>
+              <pre className="bg-gray-50 border border-gray-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono">
 {`# Transaksi dengan parameter lengkap
 curl -X GET "${apiBaseUrl}/trx" \\
   -G \\
@@ -394,135 +617,124 @@ curl -X GET "${apiBaseUrl}/trx" \\
           </div>
 
           {/* Response Parsing Section */}
-          <div className="mt-16">
-            <h2 className="text-3xl font-bold mb-6">Cara Menangkap Response</h2>
-            <p className="text-gray-600 mb-6">
-              Gunakan regex pattern berikut untuk parsing response dari callback:
+          <div className="mt-12">
+            <div className="flex items-center mb-6">
+              <div className="h-12 w-12 rounded-lg bg-orange-100 flex items-center justify-center mr-4">
+                <FontAwesomeIcon
+                  icon={faCode}
+                  className="h-6 w-6 text-orange-600"
+                />
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-gray-900">Cara Menangkap Response</h2>
+            </div>
+            <p className="text-gray-600 mb-8 text-sm sm:text-base">
+              Gunakan regex pattern berikut untuk parsing response dari callback. Setiap response memiliki format yang berbeda, pastikan Anda menggunakan pattern yang sesuai.
             </p>
 
             <div className="space-y-6">
-              {/* Regex for GAGAL */}
-              <div className="rounded-lg border bg-white p-6">
-                <div className="mb-4">
-                  <span className="px-3 py-1 rounded text-sm font-semibold bg-red-100 text-red-700">
-                    Kata Kunci: Gagal
-                  </span>
-                </div>
-                <h4 className="font-semibold mb-2">Regex Pattern:</h4>
-                <code className="block bg-gray-100 p-3 rounded text-sm mb-4 overflow-x-auto">
-                  {`(?<product>\\w+).(?<tujuan>\\d+) GAGAL. . Saldo (?<saldo>[.,\\d]+). @`}
-                </code>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <strong>Captured Groups:</strong>
-                    <ul className="mt-2 space-y-1 text-gray-600">
-                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">product</code> - Kode produk</li>
-                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">tujuan</code> - Nomor tujuan</li>
-                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">saldo</code> - Saldo terakhir</li>
-                    </ul>
+              {responseList.map((item, index) => {
+                const colorClasses = {
+                  green: 'bg-green-100 text-green-800 border-green-300',
+                  red: 'bg-red-100 text-red-800 border-red-300',
+                  yellow: 'bg-yellow-100 text-yellow-800 border-yellow-300',
+                  blue: 'bg-blue-100 text-blue-800 border-blue-300',
+                  orange: 'bg-orange-100 text-orange-800 border-orange-300'
+                };
+                const bgClasses = {
+                  green: 'bg-green-50 border-green-200',
+                  red: 'bg-red-50 border-red-200',
+                  yellow: 'bg-yellow-50 border-yellow-200',
+                  blue: 'bg-blue-50 border-blue-200',
+                  orange: 'bg-orange-50 border-orange-200'
+                };
+                
+                return (
+                  <div key={index} className="rounded-xl border border-gray-200 bg-white p-6 shadow-md hover:shadow-lg transition-shadow">
+                    <div className="mb-4">
+                      <span className={`px-4 py-2 rounded-lg text-sm font-bold border ${colorClasses[item.color as keyof typeof colorClasses]}`}>
+                        {item.name}
+                      </span>
+                    </div>
+                    <h4 className="font-semibold mb-3 text-gray-900 flex items-center">
+                      <span className="inline-block w-2 h-2 bg-gray-600 rounded-full mr-2"></span>
+                      Regex Pattern:
+                    </h4>
+                    <code className="block bg-gray-50 border border-gray-200 p-3 rounded-lg text-xs sm:text-sm mb-4 overflow-x-auto font-mono text-gray-800">
+                      {item.regexPattern}
+                    </code>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm">
+                      <div>
+                        <strong className="text-gray-900 block mb-2">Captured Groups:</strong>
+                        <ul className="space-y-2 text-gray-600">
+                          {item.capturedGroups.map((group, gIndex) => (
+                            <li key={gIndex} className="flex items-center">
+                              <span className="inline-block w-1.5 h-1.5 bg-blue-500 rounded-full mr-2"></span>
+                              <code className="bg-gray-100 border border-gray-300 px-2 py-1 rounded text-xs font-mono text-blue-600">{group}</code>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div>
+                        <strong className="text-gray-900 block mb-2">Contoh Response:</strong>
+                        <pre className={`${bgClasses[item.color as keyof typeof bgClasses]} border p-3 rounded-lg text-xs overflow-x-auto font-mono`}>
+                          {item.response}
+                        </pre>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <strong>Contoh Response:</strong>
-                    <pre className="mt-2 bg-red-50 p-2 rounded text-xs overflow-x-auto">
-{`DC12.081234567890 GAGAL. . 
-Saldo 1.244.692. @19.06.42`}
-                    </pre>
-                  </div>
-                </div>
-              </div>
-
-              {/* Regex for PROSES */}
-              <div className="rounded-lg border bg-white p-6">
-                <div className="mb-4">
-                  <span className="px-3 py-1 rounded text-sm font-semibold bg-yellow-100 text-yellow-700">
-                    Kata Kunci: proses
-                  </span>
-                </div>
-                <h4 className="font-semibold mb-2">Regex Pattern:</h4>
-                <code className="block bg-gray-100 p-3 rounded text-sm mb-4 overflow-x-auto">
-                  {`status=1&message=Transaksi (?<product>\\w+).(?<tujuan>\\d+) Harga=(?<hargabeli>[.,\\d]+) akan diproses..`}
-                </code>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <strong>Captured Groups:</strong>
-                    <ul className="mt-2 space-y-1 text-gray-600">
-                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">product</code> - Kode produk</li>
-                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">tujuan</code> - Nomor tujuan</li>
-                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">hargabeli</code> - Harga beli</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <strong>Contoh Response:</strong>
-                    <pre className="mt-2 bg-yellow-50 p-2 rounded text-xs overflow-x-auto">
-{`status=1&message=Transaksi 
-DN50.081234567890 Harga=50.090 
-akan diproses..`}
-                    </pre>
-                  </div>
-                </div>
-              </div>
-
-              {/* Regex for SUKSES */}
-              <div className="rounded-lg border bg-white p-6">
-                <div className="mb-4">
-                  <span className="px-3 py-1 rounded text-sm font-semibold bg-green-100 text-green-700">
-                    Kata Kunci: SUKSES
-                  </span>
-                </div>
-                <h4 className="font-semibold mb-2">Regex Pattern:</h4>
-                <code className="block bg-gray-100 p-3 rounded text-sm mb-4 overflow-x-auto">
-                  {`refid=(?<trxid>\\d+)&status=20&price=(?<hargabeli>\\d+)&message=.*. SN/Ref: (?<sn>.+). Saldo`}
-                </code>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div>
-                    <strong>Captured Groups:</strong>
-                    <ul className="mt-2 space-y-1 text-gray-600">
-                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">trxid</code> - Transaction ID</li>
-                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">hargabeli</code> - Harga beli</li>
-                      <li>• <code className="bg-gray-100 px-2 py-1 rounded">sn</code> - Serial Number/Ref</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <strong>Contoh Response:</strong>
-                    <pre className="mt-2 bg-green-50 p-2 rounded text-xs overflow-x-auto">
-{`refid=44474&status=20&price=0
-&message=DN50.081234567890 SUKSES. 
-SN/Ref: DNID AISXX/50000/... 
-Saldo 14.324.472`}
-                    </pre>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
 
               {/* PHP Parsing Example */}
-              <div className="rounded-lg border bg-blue-50 p-6">
-                <h3 className="font-semibold mb-3">Contoh Parsing Response dengan PHP:</h3>
-                <pre className="bg-white p-4 rounded text-sm overflow-x-auto">
+              <div className="rounded-xl border border-blue-300 bg-gradient-to-br from-blue-50 to-indigo-50 p-6 shadow-md">
+                <h3 className="font-bold mb-4 text-blue-900 flex items-center text-lg">
+                  <span className="inline-block w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                  Contoh Parsing Response dengan PHP:
+                </h3>
+                <pre className="bg-white border border-blue-200 p-4 rounded-lg text-xs sm:text-sm overflow-x-auto font-mono shadow-sm">
 {`<?php
-$response = "refid=44474&status=20&price=0&message=DN50.081234567890 SUKSES. SN/Ref: DNID123.. Saldo 14.324.472";
+$response = "DN50.081234567890 SUKSES. SN/Ref: DNID AISXX/50000/2025101410. Saldo 14.324.472 - 10.000 = 14.314.472  #Telkomsel";
 
 // Check status transaksi
 if (strpos($response, 'SUKSES') !== false) {
-    // Parse dengan regex
-    $pattern = '/refid=(?<trxid>\\d+)&status=20&price=(?<hargabeli>\\d+)&message=.*. SN\\/Ref: (?<sn>.+). Saldo/';
+    // Transaksi Non Fisik Sukses
+    $pattern = '/(?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) SUKSES\\. SN\\/Ref: (?<sn>.+?)\\. Saldo (?<saldolama>[.,\\d]+) - (?<harga>[.,\\d]+) = (?<saldo>[.,\\d]+)\\s+#(?<namaproduk>.+)/';
     if (preg_match($pattern, $response, $matches)) {
-        echo "Transaction ID: " . $matches['trxid'] . "\\n";
-        echo "Harga Beli: " . $matches['hargabeli'] . "\\n";
+        echo "Kode Produk: " . $matches['kodeproduk'] . "\\n";
+        echo "Tujuan: " . $matches['tujuan'] . "\\n";
         echo "Serial Number: " . $matches['sn'] . "\\n";
+        echo "Saldo Lama: " . $matches['saldolama'] . "\\n";
+        echo "Harga: " . $matches['harga'] . "\\n";
+        echo "Saldo: " . $matches['saldo'] . "\\n";
+        echo "Nama Produk: " . $matches['namaproduk'] . "\\n";
     }
 } elseif (strpos($response, 'GAGAL') !== false) {
-    $pattern = '/(?<product>\\w+).(?<tujuan>\\d+) GAGAL. . Saldo (?<saldo>[.,\\d]+). @/';
+    // Transaksi Gagal
+    $pattern = '/(?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) GAGAL\\. (?<keterangan>.+?)\\. Saldo (?<saldo>[.,\\d]+)\\. @(?<systime>.+)/';
     if (preg_match($pattern, $response, $matches)) {
-        echo "Product: " . $matches['product'] . "\\n";
+        echo "Kode Produk: " . $matches['kodeproduk'] . "\\n";
+        echo "Tujuan: " . $matches['tujuan'] . "\\n";
+        echo "Keterangan: " . $matches['keterangan'] . "\\n";
+        echo "Saldo: " . $matches['saldo'] . "\\n";
+        echo "System Time: " . $matches['systime'] . "\\n";
+    }
+} elseif (strpos($response, 'akan diproses') !== false) {
+    // Transaksi Masuk Antrian
+    $pattern = '/Transaksi (?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) Harga=(?<harga>[.,\\d]+) akan diproses/';
+    if (preg_match($pattern, $response, $matches)) {
+        echo "Kode Produk: " . $matches['kodeproduk'] . "\\n";
+        echo "Tujuan: " . $matches['tujuan'] . "\\n";
+        echo "Harga: " . $matches['harga'] . "\\n";
+    }
+} elseif (strpos($response, 'timeout') !== false) {
+    // Transaksi Timeout
+    $pattern = '/R#(?<refid>\\d+) (?<namaproduk>.+?) (?<kodeproduk>\\w+)\\.(?<tujuan>\\d+) GAGAL karena timeout\\. Saldo (?<saldo>[.,\\d]+) @(?<systime>.+)/';
+    if (preg_match($pattern, $response, $matches)) {
+        echo "Ref ID: " . $matches['refid'] . "\\n";
+        echo "Nama Produk: " . $matches['namaproduk'] . "\\n";
+        echo "Kode Produk: " . $matches['kodeproduk'] . "\\n";
         echo "Tujuan: " . $matches['tujuan'] . "\\n";
         echo "Saldo: " . $matches['saldo'] . "\\n";
-    }
-} elseif (strpos($response, 'status=1') !== false) {
-    $pattern = '/status=1&message=Transaksi (?<product>\\w+).(?<tujuan>\\d+) Harga=(?<hargabeli>[.,\\d]+) akan diproses../';
-    if (preg_match($pattern, $response, $matches)) {
-        echo "Product: " . $matches['product'] . "\\n";
-        echo "Tujuan: " . $matches['tujuan'] . "\\n";
-        echo "Harga Beli: " . $matches['hargabeli'] . "\\n";
     }
 }
 ?>`}
@@ -532,15 +744,36 @@ if (strpos($response, 'SUKSES') !== false) {
           </div>
 
           {/* Important Notes */}
-          <div className="mt-8 rounded-lg bg-yellow-50 border border-yellow-200 p-6">
-            <h3 className="font-semibold mb-3 text-yellow-800">⚠️ Penting:</h3>
-            <ul className="space-y-2 text-sm text-yellow-800">
-              <li>• Response bersifat <strong>asynchronous</strong> - transaksi akan diproses dan hasilnya dikirim via callback</li>
-              <li>• Response callback akan dikirim ke URL yang Anda daftarkan ke Admin</li>
-              <li>• Gunakan <code className="bg-yellow-100 px-2 py-1 rounded">refID</code> yang unik untuk setiap transaksi</li>
-              <li>• Simpan callback URL di pengaturan member untuk menerima notifikasi hasil transaksi</li>
-              <li>• Status response: 1 = diproses, 20 = sukses, 40 = gagal</li>
-              <li>• Disarankan menggunakan signature untuk keamanan yang lebih baik</li>
+          <div className="mt-10 rounded-xl bg-gradient-to-br from-yellow-50 to-amber-50 border-2 border-yellow-300 p-6 sm:p-8 shadow-lg">
+            <h3 className="font-bold mb-4 text-yellow-900 text-lg sm:text-xl flex items-center">
+              <span className="text-2xl mr-3">⚠️</span>
+              Penting - Harap Dibaca:
+            </h3>
+            <ul className="space-y-3 text-sm sm:text-base text-yellow-900">
+              <li className="flex items-start">
+                <span className="inline-block w-2 h-2 bg-yellow-600 rounded-full mr-3 mt-1.5 flex-shrink-0"></span>
+                <span>Response bersifat <strong>asynchronous</strong> - transaksi akan diproses dan hasilnya dikirim via callback</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-block w-2 h-2 bg-yellow-600 rounded-full mr-3 mt-1.5 flex-shrink-0"></span>
+                <span>Response callback akan dikirim ke URL yang Anda daftarkan ke Admin</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-block w-2 h-2 bg-yellow-600 rounded-full mr-3 mt-1.5 flex-shrink-0"></span>
+                <span>Gunakan <code className="bg-yellow-100 border border-yellow-400 px-2 py-1 rounded font-mono text-yellow-900">refID</code> yang unik untuk setiap transaksi</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-block w-2 h-2 bg-yellow-600 rounded-full mr-3 mt-1.5 flex-shrink-0"></span>
+                <span>Pastikan Regex sudah anda test dengan response yang dikirim oleh API</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-block w-2 h-2 bg-yellow-600 rounded-full mr-3 mt-1.5 flex-shrink-0"></span>
+                <span>Status response: <strong>1</strong> = diproses, <strong>20</strong> = sukses, <strong>40</strong> = gagal</span>
+              </li>
+              <li className="flex items-start">
+                <span className="inline-block w-2 h-2 bg-yellow-600 rounded-full mr-3 mt-1.5 flex-shrink-0"></span>
+                <span>Disarankan menggunakan <strong>signature</strong> untuk keamanan yang lebih baik</span>
+              </li>
             </ul>
           </div>
         </div>
