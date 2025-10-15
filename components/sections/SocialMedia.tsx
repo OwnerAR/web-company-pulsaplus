@@ -19,23 +19,23 @@ export function SocialMedia() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           <a
             href={`https://wa.me/${csWA}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white rounded-lg p-8 hover:shadow-xl transition-shadow"
+            className="bg-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-gradient-to-r from-green-600 via-green-700 to-white hover:animate-gradient-x rounded-lg p-8 hover:shadow-xl transition-shadow group"
           >
             <div className="flex items-center gap-4 mb-4">
-              <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center">
+              <div className="h-16 w-16 rounded-full bg-green-100 group-hover:bg-white transition-colors flex items-center justify-center">
                 <FontAwesomeIcon
                   icon={faWhatsapp}
-                  className="h-8 w-8 text-green-600"
+                  className="h-8 w-8 text-green-600 group-hover:text-green-600 transition-colors"
                 />
               </div>
               <div>
-                <h3 className="font-bold text-lg">Customer Service</h3>
-                <p className="text-gray-600">{csWA}</p>
+                <h3 className="font-bold text-lg group-hover:text-white transition-colors">Customer Service</h3>
+                <p className="text-gray-600 group-hover:text-white transition-colors">{csWA}</p>
               </div>
             </div>
           </a>
@@ -44,21 +44,21 @@ export function SocialMedia() {
             href="https://www.tiktok.com/@adzkareload.id"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-white rounded-lg p-8 hover:shadow-xl transition-shadow"
+            className="bg-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 rounded-lg p-8 hover:shadow-xl hover:bg-gradient-to-r from-pink-500 via-red-500 to-black hover:animate-gradient-x transition-all duration-300 group"
           >
             <div className="flex items-center gap-4 mb-4">
-              <div className="h-16 w-16 rounded-full bg-black flex items-center justify-center">
+              <div className="h-16 w-16 rounded-full bg-black group-hover:bg-white transition-colors flex items-center justify-center">
                 <FontAwesomeIcon
                   icon={faTiktok}
-                  className="h-8 w-8 text-white"
+                  className="h-8 w-8 text-white group-hover:text-black transition-colors"
                 />
               </div>
               <div>
-                <h3 className="font-bold text-lg">Join Tiktok</h3>
-                <p className="text-gray-600">@adzkareload.id</p>
+                <h3 className="font-bold text-lg group-hover:text-white transition-colors">Join Tiktok</h3>
+                <p className="text-gray-600 group-hover:text-white transition-colors">@adzkareload.id</p>
               </div>
             </div>
-            <p className="text-sm text-gray-500">Join Tiktok Adzka Multipayment.</p>
+            <p className="text-sm text-gray-500 group-hover:text-white transition-colors">Join Tiktok Adzka Multipayment.</p>
           </a>
         </div>
       </div>
