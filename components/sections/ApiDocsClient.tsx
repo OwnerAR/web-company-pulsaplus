@@ -187,7 +187,7 @@ PT.Adzka Media Indoperkasa`,
 
   return (
     <div className="min-h-screen bg-gray-50 py-16 sm:py-20">
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto px-4 max-w-6xl">
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-8 sm:p-12 mb-12 text-center shadow-xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">Dokumentasi API</h1>
@@ -197,7 +197,7 @@ PT.Adzka Media Indoperkasa`,
         </div>
 
         {/* Quick Start */}
-        <div className="mb-12">
+        <div id="getting-started" className="mb-12 scroll-mt-24">
           <div className="rounded-xl border border-gray-200 bg-white p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow">
             <div className="flex items-center mb-6">
               <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
@@ -261,7 +261,7 @@ PT.Adzka Media Indoperkasa`,
         </div>
 
         {/* Endpoints */}
-        <div className="mb-12">
+        <div id="api-endpoints" className="mb-12 scroll-mt-24">
           <div className="flex items-center mb-6">
             <div className="h-12 w-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
               <FontAwesomeIcon
@@ -342,7 +342,7 @@ PT.Adzka Media Indoperkasa`,
         </div>
 
         {/* Format WA */}
-        <div className="mb-12">
+        <div id="format-whatsapp" className="mb-12 scroll-mt-24">
           <div className="flex items-center mb-6">
             <div className="h-12 w-12 rounded-lg bg-green-100 flex items-center justify-center mr-4">
               <FontAwesomeIcon
@@ -372,7 +372,7 @@ PT.Adzka Media Indoperkasa`,
         </div>
 
         {/* Signature Generation */}
-        <div className="mb-12">
+        <div id="generate-signature" className="mb-12 scroll-mt-24">
           <div className="flex items-center mb-6">
             <div className="h-12 w-12 rounded-lg bg-purple-100 flex items-center justify-center mr-4">
               <FontAwesomeIcon
@@ -422,7 +422,7 @@ echo $sign;
         </div>
 
         {/* Code Examples */}
-        <div>
+        <div id="contoh-request" className="scroll-mt-24">
           <div className="flex items-center mb-6">
             <div className="h-12 w-12 rounded-lg bg-indigo-100 flex items-center justify-center mr-4">
               <FontAwesomeIcon
@@ -617,7 +617,7 @@ curl -X GET "${apiBaseUrl}/trx" \\
           </div>
 
           {/* Response Parsing Section */}
-          <div className="mt-12">
+          <div id="response-parsing" className="mt-12 scroll-mt-24">
             <div className="flex items-center mb-6">
               <div className="h-12 w-12 rounded-lg bg-orange-100 flex items-center justify-center mr-4">
                 <FontAwesomeIcon
