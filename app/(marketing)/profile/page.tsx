@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 
 export default function ProfilePage() {
   const team = [
-    { name: "John Doe", role: "CEO & Founder", image: "" },
-    { name: "Jane Smith", role: "CTO", image: "" },
-    { name: "Mike Johnson", role: "Lead Developer", image: "" },
-    { name: "Sarah Williams", role: "Project Manager", image: "" },
+    { name: "Mely", role: "Customer Service", image: "" },
+    { name: "Arsan", role: "Customer Service", image: "" },
+    { name: "Rifal", role: "Customer Service", image: "" },
+    { name: "Lisda", role: "Customer Service", image: "" },
   ];
 
   return (
