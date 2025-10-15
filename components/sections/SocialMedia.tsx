@@ -35,7 +35,7 @@ export function SocialMedia() {
               </div>
               <div>
                 <h3 className="font-bold text-lg">Customer Service</h3>
-                <p className="text-gray-600">0858-8844-4608</p>
+                <p className="text-gray-600">{csWA}</p>
               </div>
             </div>
           </a>

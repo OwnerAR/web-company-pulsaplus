@@ -1,0 +1,43 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .logo-red { fill: #E00000; }
+      .logo-white { fill: #FFFFFF; }
+      .logo-border { stroke: #FFFFFF; stroke-width: 3; fill: none; }
+    </style>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="100" cy="100" r="97" class="logo-red" />
+  
+  <!-- White border -->
+  <circle cx="100" cy="100" r="97" class="logo-border" />
+  
+  <!-- Main symbol - stylized 'A' or mountain peak -->
+  <path d="M 60 140 
+           L 85 80 
+           L 100 60 
+           L 115 80 
+           L 140 140 
+           L 125 140 
+           L 110 100 
+           L 90 100 
+           L 75 140 Z" class="logo-white" />
+  
+  <!-- Dynamic swoosh/arc element -->
+  <path d="M 115 85 
+           Q 125 70 135 85 
+           Q 130 95 125 105 
+           L 120 115 
+           L 115 125 
+           L 110 135 
+           L 105 140 
+           L 100 135 
+           L 95 125 
+           L 90 115 
+           L 85 105 
+           L 80 95 
+           L 85 85 
+           Q 90 75 100 80 
+           Q 110 75 115 85 Z" class="logo-white" />
+</svg>
