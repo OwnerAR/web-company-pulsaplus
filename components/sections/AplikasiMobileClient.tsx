@@ -599,7 +599,7 @@ export function AplikasiMobileClient() {
               <ol className="list-decimal list-inside space-y-2 text-blue-800">
                 <li>Buka <strong>Settings</strong> (Pengaturan) di perangkat Android</li>
                 <li>Pilih <strong>Security</strong> (Keamanan) atau <strong>Privacy</strong> (Privasi)</li>
-                <li>Aktifkan opsi <strong>"Install unknown apps"</strong> atau <strong>"Unknown sources"</strong></li>
+                <li>Aktifkan opsi <strong>&quot;Install unknown apps&quot;</strong> atau <strong>&quot;Unknown sources&quot;</strong></li>
                 <li>Pilih browser atau file manager yang akan digunakan untuk menginstal aplikasi</li>
                 <li>Aktifkan izin instalasi untuk aplikasi tersebut</li>
               </ol>
