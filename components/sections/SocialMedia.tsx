@@ -21,7 +21,7 @@ export function SocialMedia() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           <a
-            href={`https://wa.me/${csWA}`}
+            href={`https://api.whatsapp.com/send?phone=${csWA}&text=Halo, saya ingin bertanya tentang Adzka Reload.`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-gradient-to-r from-green-600 via-green-700 to-white hover:animate-gradient-x rounded-lg p-8 hover:shadow-xl transition-shadow group"
