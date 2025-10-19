@@ -18,6 +18,7 @@ export function Header() {
     { name: "Pendaftaran", href: "/pendaftaran" },
     { name: "Dokumentasi", href: "/api-docs" },
     { name: "Profile", href: "/profile" },
+    { name: "Aplikasi Mobile", href: "/aplikasi-mobile" },
   ];
 
   return (

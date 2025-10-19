@@ -50,5 +50,33 @@ export interface ApiResponse<T> {
   data?: T;
 }
 
+export interface MobileApp {
+  id: string;
+  name: string;
+  description: string;
+  version: string;
+  size: string;
+  icon: string;
+  screenshots: string[];
+  features: string[];
+  downloadLinks: {
+    android?: string;
+    ios?: string;
+    apk?: string;
+  };
+  downloadApkUrlRaw: string;
+  requirements: {
+    android?: string;
+    ios?: string;
+  };
+  lastUpdated: string;
+  developer: string;
+}
+
+export interface AppDownloadLinks {
+  android: string;
+  ios: string;
+  apk: string;
+}
 
 
