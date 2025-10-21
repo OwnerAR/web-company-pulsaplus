@@ -24,6 +24,17 @@ export const organizationSchema = {
   "foundingDate": "2014",
   "numberOfEmployees": "100+",
   "industry": "Technology",
+  "trustPilot": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "ratingCount": "10000",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "awards": [
+    "Best Digital Services Provider 2023",
+    "Trusted Technology Partner 2022"
+  ],
   "services": [
     "Web Development",
     "Mobile App Development", 

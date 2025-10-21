@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: '%s - Adzka Media Indoperkasa',
     default: 'Adzka Media Indoperkasa - Digital Solutions',
   },
-  description: 'Professional digital services and solutions',
+  description: 'Adzka Media Indoperkasa - Perusahaan teknologi terpercaya dengan pengalaman 10+ tahun. Solusi digital profesional untuk transaksi pulsa, paket data, dan layanan digital lainnya.',
   keywords: ['digital services', 'web development', 'API', 'software solutions', 'pulsa', 'paket data', 'mobile apps', 'adzka'],
   authors: [{ name: 'Adzka Media Indoperkasa' }],
   creator: 'Adzka Media Indoperkasa',

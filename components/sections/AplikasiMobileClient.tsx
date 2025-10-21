@@ -571,7 +571,7 @@ export function AplikasiMobileClient() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
-              Panduan Instalasi Aplikasi
+              Panduan Download Aplikasi Resmi
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-white rounded-lg p-6 shadow-sm">
@@ -581,30 +581,29 @@ export function AplikasiMobileClient() {
                 </h4>
                 <p className="text-gray-700">
                   Android memiliki sistem keamanan bawaan yang melindungi perangkat dari aplikasi berbahaya. 
-                  Saat menginstal aplikasi dari sumber selain Google Play Store, Anda akan menerima notifikasi keamanan dari sistem Android.
+                  Semua aplikasi kami tersedia di Google Play Store resmi untuk keamanan maksimal.
                 </p>
               </div>
               <div className="bg-white rounded-lg p-6 shadow-sm">
                 <h4 className="text-lg font-semibold text-gray-900 mb-3 flex items-center">
                   <FontAwesomeIcon icon={faCheckCircle} className="text-green-600 mr-2" />
-                  Solusi Error Instalasi
+                  Download Aplikasi Resmi
                 </h4>
                 <p className="text-gray-700">
-                  Jika mengalami error saat menginstal aplikasi, pastikan Anda telah mengizinkan instalasi dari sumber lain (Unknown Sources) 
-                  di pengaturan keamanan perangkat Android Anda.
+                  Semua aplikasi kami tersedia di Google Play Store resmi. Download langsung dari Play Store untuk keamanan dan kemudahan penggunaan.
                 </p>
               </div>
             </div>
-            <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-6">
-              <h4 className="text-lg font-semibold text-blue-900 mb-3">
-                Langkah-langkah Mengaktifkan Unknown Sources:
+            <div className="mt-8 bg-green-50 border border-green-200 rounded-lg p-6">
+              <h4 className="text-lg font-semibold text-green-900 mb-3">
+                Cara Download Aplikasi Resmi:
               </h4>
-              <ol className="list-decimal list-inside space-y-2 text-blue-800">
-                <li>Buka <strong>Settings</strong> (Pengaturan) di perangkat Android</li>
-                <li>Pilih <strong>Security</strong> (Keamanan) atau <strong>Privacy</strong> (Privasi)</li>
-                <li>Aktifkan opsi <strong>&quot;Install unknown apps&quot;</strong> atau <strong>&quot;Unknown sources&quot;</strong></li>
-                <li>Pilih browser atau file manager yang akan digunakan untuk menginstal aplikasi</li>
-                <li>Aktifkan izin instalasi untuk aplikasi tersebut</li>
+              <ol className="list-decimal list-inside space-y-2 text-green-800">
+                <li>Buka <strong>Google Play Store</strong> di perangkat Android</li>
+                <li>Cari nama aplikasi yang diinginkan (contoh: "Adzka Reload")</li>
+                <li>Pastikan aplikasi resmi dari developer "Adzka Media Indoperkasa"</li>
+                <li>Klik <strong>"Install"</strong> untuk download dan install</li>
+                <li>Tunggu proses download dan install selesai</li>
               </ol>
             </div>
           </div>

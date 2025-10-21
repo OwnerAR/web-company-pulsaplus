@@ -1,0 +1,8 @@
+Contact: mailto:security@adzka.co.id
+Contact: https://adzka.co.id/contact
+Expires: 2025-12-31T23:59:59.000Z
+Encryption: https://adzka.co.id/pgp-key.txt
+Acknowledgments: https://adzka.co.id/security-acknowledgments
+Preferred-Languages: en, id
+Canonical: https://adzka.co.id/.well-known/security.txt
+Policy: https://adzka.co.id/security-policy
