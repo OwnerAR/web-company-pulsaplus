@@ -600,9 +600,9 @@ export function AplikasiMobileClient() {
               </h4>
               <ol className="list-decimal list-inside space-y-2 text-green-800">
                 <li>Buka <strong>Google Play Store</strong> di perangkat Android</li>
-                <li>Cari nama aplikasi yang diinginkan (contoh: "Adzka Reload")</li>
-                <li>Pastikan aplikasi resmi dari developer "Adzka Media Indoperkasa"</li>
-                <li>Klik <strong>"Install"</strong> untuk download dan install</li>
+                <li>Cari nama aplikasi yang diinginkan (contoh: &quot;Adzka Reload&quot;)</li>
+                <li>Pastikan aplikasi resmi dari developer &quot;Adzka Media Indoperkasa&quot;</li>
+                <li>Klik <strong>&quot;Install&quot;</strong> untuk download dan install</li>
                 <li>Tunggu proses download dan install selesai</li>
               </ol>
             </div>
