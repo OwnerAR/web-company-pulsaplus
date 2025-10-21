@@ -10,7 +10,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata: Metadata = {
-  title: 'Service',
+  title: 'Service - Layanan Kami',
+  description: 'Layanan digital profesional Adzka Media Indoperkasa: Web Development, Mobile Apps, API Development, Cloud & DevOps, UI/UX Design. Solusi lengkap untuk bisnis Anda.',
+  keywords: ['layanan', 'web development', 'mobile apps', 'api development', 'cloud devops', 'ui ux design', 'digital services'],
+  openGraph: {
+    title: 'Layanan Digital Profesional - Adzka Media Indoperkasa',
+    description: 'Web Development, Mobile Apps, API Development, Cloud & DevOps, UI/UX Design.',
+    type: 'website',
+  },
 };
 
 export default function ServicePage() {

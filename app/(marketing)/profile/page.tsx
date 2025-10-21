@@ -3,7 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faBullseye, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata: Metadata = {
-  title: 'Profile',
+  title: 'Profile - Tentang Kami',
+  description: 'Tentang Adzka Media Indoperkasa - Perusahaan teknologi terdepan dengan pengalaman 10+ tahun dalam solusi digital. Tim profesional siap membantu bisnis Anda.',
+  keywords: ['tentang kami', 'profile perusahaan', 'adzka media', 'tim profesional', 'pengalaman 10 tahun'],
+  openGraph: {
+    title: 'Tentang Kami - Adzka Media Indoperkasa',
+    description: 'Perusahaan teknologi terdepan dengan pengalaman 10+ tahun dalam solusi digital.',
+    type: 'website',
+  },
 };
 
 export default function ProfilePage() {

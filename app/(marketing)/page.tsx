@@ -9,6 +9,13 @@ import { DownloadApp } from "@/components/sections/DownloadApp";
 
 export const metadata: Metadata = {
   title: 'Home',
+  description: 'Adzka Media Indoperkasa - Solusi digital profesional untuk transaksi pulsa, paket data, dan layanan digital lainnya. Download aplikasi mobile kami sekarang!',
+  keywords: ['adzka', 'pulsa', 'paket data', 'digital services', 'mobile apps', 'transaksi digital', 'indonesia'],
+  openGraph: {
+    title: 'Adzka Media Indoperkasa - Solusi Digital Terpercaya',
+    description: 'Solusi digital profesional untuk transaksi pulsa, paket data, dan layanan digital lainnya.',
+    type: 'website',
+  },
 };
 
 export default function HomePage() {
