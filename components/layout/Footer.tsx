@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faFile, faLock } from "@fortawesome/free-solid-svg-icons";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -21,6 +21,16 @@ export function Footer() {
       name: "Download Apps",
       href: appURL,
       icon: faDownload,
+    },
+    {
+      name: "Privacy Policy",
+      href: "/privacy-policy",
+      icon: faLock,
+    },
+    {
+      name: "Terms of Service",
+      href: "/terms-of-service",
+      icon: faFile,
     },
   ];
 
