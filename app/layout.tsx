@@ -79,7 +79,9 @@ export default function RootLayout({
       <head>
         {/* Google Tag Manager */}
         {gtmId && (
-          <script
+          <Script
+            id="google-tag-manager"
+            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `
                 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -139,6 +141,25 @@ export default function RootLayout({
             </Script>
           </>
         )}
+
+        {/* Live Chat - Chatwoot */}
+        <Script id="chatwoot-sdk" strategy="afterInteractive">
+          {`
+            (function(d,t) {
+              var BASE_URL="https://chat.adzka.co.id";
+              var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+              g.src=BASE_URL+"/packs/js/sdk.js";
+              g.async = true;
+              s.parentNode.insertBefore(g,s);
+              g.onload=function(){
+                window.chatwootSDK.run({
+                  websiteToken: 'cCqJXfbemBmjXNdJX6d1SQ3F',
+                  baseUrl: BASE_URL
+                })
+              }
+            })(document,"script");
+          `}
+        </Script>
         
         {children}
       </body>
