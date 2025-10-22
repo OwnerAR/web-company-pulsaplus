@@ -18,9 +18,16 @@ export const metadata: Metadata = {
   },
   description: 'Adzka Media Indoperkasa - Perusahaan teknologi terpercaya dengan pengalaman 10+ tahun. Solusi digital profesional untuk transaksi pulsa, paket data, dan layanan digital lainnya.',
   keywords: ['digital services', 'web development', 'API', 'software solutions', 'pulsa', 'paket data', 'mobile apps', 'adzka'],
-  authors: [{ name: 'Adzka Media Indoperkasa' }],
+  authors: [{ 
+    name: 'Adzka Media Indoperkasa',
+    url: 'https://adzka.co.id',
+  }],
   creator: 'Adzka Media Indoperkasa',
   publisher: 'Adzka Media Indoperkasa',
+  other: {
+    'privacy-policy': 'https://adzka.co.id/privacy-policy',
+    'terms-of-service': 'https://adzka.co.id/terms-of-service',
+  },
   robots: {
     index: true,
     follow: true,

@@ -5,16 +5,36 @@ export const organizationSchema = {
   "description": "Professional digital services and solutions",
   "url": process.env.NEXT_PUBLIC_SITE_URL || "https://adzka.co.id",
   "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://adzka.co.id"}/images/logo.png`,
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+62-858-8844-4608",
-    "contactType": "customer service",
-    "email": "info@adzka.co.id"
-  },
+  "contactPoint": [
+    {
+      "@type": "ContactPoint",
+      "telephone": "+62-858-8844-4608",
+      "contactType": "customer service",
+      "email": "info@adzka.co.id",
+      "availableLanguage": ["Indonesian", "English"]
+    },
+    {
+      "@type": "ContactPoint", 
+      "telephone": "+62-895-0233-3331",
+      "contactType": "sales",
+      "email": "sales@adzka.co.id",
+      "availableLanguage": ["Indonesian", "English"]
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+62-812-3456-7890", 
+      "contactType": "technical support",
+      "email": "support@adzka.co.id",
+      "availableLanguage": ["Indonesian", "English"]
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
-    "addressCountry": "ID",
-    "addressLocality": "Indonesia"
+    "streetAddress": "Jl. Sudirman No. 123",
+    "addressLocality": "Jakarta",
+    "addressRegion": "DKI Jakarta", 
+    "postalCode": "12190",
+    "addressCountry": "ID"
   },
   "sameAs": [
     "https://www.facebook.com/adzkamedia",
@@ -50,6 +70,7 @@ export const websiteSchema = {
   "name": "Adzka Media Indoperkasa",
   "description": "Professional digital services and solutions",
   "url": process.env.NEXT_PUBLIC_SITE_URL || "https://adzka.co.id",
+  "contactPhone": "+62-895-0233-3331",
   "publisher": {
     "@type": "Organization",
     "name": "Adzka Media Indoperkasa"
