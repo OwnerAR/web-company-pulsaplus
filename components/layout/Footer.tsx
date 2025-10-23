@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faDownload, faFile, faLock } from "@fortawesome/free-solid-svg-icons";
+import { faDownload, faFile, faLock, faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -12,6 +12,11 @@ export function Footer() {
   const appURL = process.env.NEXT_PUBLIC_APP_URL;
 
   const mainLinks = [
+    {
+      name: "FAQ",
+      href: "/faq",
+      icon: faQuestionCircle,
+    },
     {
       name: "CS Whatsapp",
       href: `https://wa.me/${csWA}`,
@@ -60,8 +65,8 @@ export function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    target={link.name === "FAQ" ? "_self" : "_blank"}
+                    rel={link.name === "FAQ" ? "" : "noopener noreferrer"}
                     className="flex items-center text-white/90 hover:text-white transition-colors"
                   >
                     <FontAwesomeIcon icon={link.icon} className="h-5 w-5 mr-2" />
