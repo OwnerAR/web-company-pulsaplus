@@ -40,18 +40,25 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Pulsa Plus',
-    description: 'Professional digital services and solutions',
-    images: ['/og-image.jpg'],
+    title: 'Pulsa Plus - Platform Terpercaya untuk Layanan Digital',
+    description: 'Platform terpercaya untuk layanan pulsa, paket data, e-wallet, dan berbagai kebutuhan digital dengan harga terbaik dan transaksi yang aman.',
+    images: [
+      {
+        url: '/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Pulsa Plus - Platform Terpercaya untuk Layanan Digital',
+      }
+    ],
     type: 'website',
     locale: 'id_ID',
     siteName: 'Pulsa Plus',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Pulsa Plus',
-    description: 'Professional digital services and solutions',
-    images: ['/og-image.jpg'],
+    title: 'Pulsa Plus - Platform Terpercaya untuk Layanan Digital',
+    description: 'Platform terpercaya untuk layanan pulsa, paket data, e-wallet, dan berbagai kebutuhan digital dengan harga terbaik dan transaksi yang aman.',
+    images: ['/og-image.svg'],
     creator: '@Pulsa Plusmedia',
   },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
@@ -113,6 +120,17 @@ export default function RootLayout({
         <meta name="msapplication-TileColor" content="#2563eb" />
         <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png" />
         <meta name="msapplication-config" content="/images/browserconfig.xml" />
+        
+        {/* Additional OG Meta Tags */}
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/svg+xml" />
+        <meta name="twitter:image:alt" content="Pulsa Plus - Platform Terpercaya untuk Layanan Digital" />
+        
+        {/* Additional Meta Tags */}
+        <meta name="application-name" content="Pulsa Plus" />
+        <meta name="apple-mobile-web-app-title" content="Pulsa Plus" />
+        <meta name="format-detection" content="telephone=no" />
         
         {/* Google Tag Manager */}
         {gtmId && (
