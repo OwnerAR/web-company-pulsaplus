@@ -16,7 +16,7 @@ export default function PendaftaranPage() {
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-12 mb-12 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Pendaftaran</h1>
           <p className="text-white/90 text-lg">
-            Daftar menjadi member Adzka Reload dan nikmati kemudahan transaksi
+            Daftar menjadi member Pulsa Plus dan nikmati kemudahan transaksi
           </p>
         </div>
 

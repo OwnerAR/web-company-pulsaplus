@@ -40,20 +40,21 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x text-white">
+    <footer className="bg-gradient-brand bg-[length:200%_100%] animate-gradient-x text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <Image
-              src="/images/logo.png"
-              alt="Adzka Reload"
+              src="/images/logo.svg"
+              alt="Pulsa Plus"
               width={200}
-              height={57}
+              height={60}
               className="mb-4 h-12 w-auto"
             />
             <p className="text-white/80 mb-4">
-              Adzka Media Indoperkasa adalah perusahaan yang bergerak di bidang digital solutions
+              Pulsa Plus adalah platform terpercaya untuk layanan pulsa, paket data, e-wallet,
+              dan berbagai kebutuhan digital dengan harga terbaik.
             </p>
           </div>
 
@@ -81,7 +82,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Channel Telegram</h4>
             <a
-              href="https://t.me/InfoAdzkaPayment"
+              href="https://t.me/InfoPulsa PlusPayment"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/90 hover:text-white transition-colors"
@@ -93,7 +94,7 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="border-t border-white/20 mt-8 pt-8 text-center text-white/80">
-          <p>Adzka Media Indoperkasa © {currentYear} All rights reserved</p>
+          <p>Pulsa Plus © {currentYear} All rights reserved</p>
         </div>
       </div>
     </footer>

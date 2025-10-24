@@ -7,7 +7,7 @@ export function DownloadApp() {
   const appURL = process.env.NEXT_PUBLIC_APP_URL;
 
   return (
-    <section className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-[length:200%_100%] animate-gradient-x py-20">
+    <section className="bg-gradient-brand bg-[length:200%_100%] animate-gradient-x py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
@@ -15,12 +15,12 @@ export function DownloadApp() {
               Get the app in Playstore
             </h2>
             <p className="text-lg text-white/90 mb-8">
-              Download Aplikasi Adzka Reload dan bergabung dengan ribuan member diseluruh Indonesia
+              Download Aplikasi Pulsa Plus dan bergabung dengan ribuan member diseluruh Indonesia
             </p>
             <Link
               href={appURL || "#"}
               target="_blank"
-              className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-blue-600 font-medium hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-blue-600 font-medium hover:bg-gray-100 hover:shadow-primary transition-all duration-300 transform hover:scale-105"
             >
               Download App
             </Link>
@@ -30,7 +30,7 @@ export function DownloadApp() {
             <div className="relative w-full max-w-lg aspect-[4/3]">
               <Image
                 src="/images/section-hero.png"
-                alt="Download Adzka Reload"
+                alt="Download Pulsa Plus"
                 width={800}
                 height={600}
                 className="w-full h-auto"

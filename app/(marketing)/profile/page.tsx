@@ -4,10 +4,10 @@ import { faEye, faBullseye, faUsers } from "@fortawesome/free-solid-svg-icons";
 
 export const metadata: Metadata = {
   title: 'Profile - Tentang Kami',
-  description: 'Tentang Adzka Media Indoperkasa - Perusahaan teknologi terdepan dengan pengalaman 10+ tahun dalam solusi digital. Tim profesional siap membantu bisnis Anda.',
-  keywords: ['tentang kami', 'profile perusahaan', 'adzka media', 'tim profesional', 'pengalaman 10 tahun'],
+  description: 'Tentang Pulsa Plus - Perusahaan teknologi terdepan dengan pengalaman 10+ tahun dalam solusi digital. Tim profesional siap membantu bisnis Anda.',
+  keywords: ['tentang kami', 'profile perusahaan', 'Pulsa Plus media', 'tim profesional', 'pengalaman 10 tahun'],
   openGraph: {
-    title: 'Tentang Kami - Adzka Media Indoperkasa',
+    title: 'Tentang Kami - Pulsa Plus',
     description: 'Perusahaan teknologi terdepan dengan pengalaman 10+ tahun dalam solusi digital.',
     type: 'website',
   },
@@ -28,7 +28,7 @@ export default function ProfilePage() {
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-8 sm:p-12 mb-12 text-center shadow-lg">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">Tentang Kami</h1>
           <p className="text-white/90 text-base sm:text-lg max-w-3xl mx-auto">
-            Adzka Media Indoperkasa adalah perusahaan teknologi yang berfokus pada
+            Pulsa Plus adalah perusahaan teknologi yang berfokus pada
             penyediaan solusi digital berkualitas tinggi. Dengan pengalaman lebih dari
             10 tahun, kami telah membantu ratusan klien untuk mentransformasi bisnis
             mereka ke era digital.

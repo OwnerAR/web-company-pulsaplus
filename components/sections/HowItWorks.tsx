@@ -33,11 +33,11 @@ export function HowItWorks() {
               Dapatkan Penghasilan Tambahan
             </h4>
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">
-              Bagaimana Adzka Reload Bekerja?
+              Bagaimana Pulsa Plus Bekerja?
             </h2>
             <p className="text-gray-600 mb-8">
               Distributor Agen Pulsa, Data, Ewallet, Produk Digital, terlengkap se-Indonesia. 
-              Dengan Adzka Payment dapatkan penghasilan tambahan melimpah
+              Dengan Pulsa Plus Payment dapatkan penghasilan tambahan melimpah
             </p>
 
             <div className="space-y-6 mb-8">
@@ -70,7 +70,7 @@ export function HowItWorks() {
             <div className="relative w-full max-w-md aspect-[9/10]">
               <Image
                 src="/images/section-hero.png"
-                alt="Adzka Reload App"
+                alt="Pulsa Plus App"
                 width={800}
                 height={888}
                 className="w-full h-auto"

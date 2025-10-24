@@ -5,11 +5,11 @@ import { faBook, faCode, faKey, faPlug } from "@fortawesome/free-solid-svg-icons
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 export function ApiDocsClient() {
-  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.adzka.co.id';
+  const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.pulsaplus.co.id';
   const oidCenter = process.env.NEXT_PUBLIC_OID_CENTER || '019008';
-  const jabberID = process.env.NEXT_PUBLIC_JABBER_ID || 'info@adzka.co.id';
+  const jabberID = process.env.NEXT_PUBLIC_JABBER_ID || 'info@pulsaplus.co.id';
   const waCenter = process.env.NEXT_PUBLIC_WA_CENTER || '085888444608';
-  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@adzka.co.id';
+  const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@pulsaplus.co.id';
 
   const endpoints = [
     {
@@ -57,13 +57,13 @@ export function ApiDocsClient() {
       },
       responseSuccess: `Silahkan Transfer Sesuai Nominal Rp.1.002.154
 BCA : 2453913333
-PT.Adzka Media Indoperkasa 
+PT.Pulsa Plus 
 BNI : 2020211038
-PT.Adzka Media Indoperkasa
+PT.Pulsa Plus
 BRI : 008401003726300
-PT.Adzka Media Indoperkasa
+PT.Pulsa Plus
 MANDIRI : 1630004353028
-PT.Adzka Media Indoperkasa`,
+PT.Pulsa Plus`,
     },
   ];
 
@@ -192,7 +192,7 @@ PT.Adzka Media Indoperkasa`,
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-8 sm:p-12 mb-12 text-center shadow-xl">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">Dokumentasi API</h1>
           <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto">
-            Dokumentasi lengkap untuk integrasi API layanan Adzka Media Indoperkasa
+            Dokumentasi lengkap untuk integrasi API layanan Pulsa Plus
           </p>
         </div>
 
@@ -562,13 +562,13 @@ echo $response;
 /* Response:
 Silahkan Transfer Sesuai Nominal Rp.1.002.154
 BCA : 2453913333
-PT.Adzka Media Indoperkasa 
+PT.Pulsa Plus 
 BNI : 2020211038
-PT.Adzka Media Indoperkasa
+PT.Pulsa Plus
 BRI : 008401003726300
-PT.Adzka Media Indoperkasa
+PT.Pulsa Plus
 MANDIRI : 1630004353028
-PT.Adzka Media Indoperkasa
+PT.Pulsa Plus
 */
 ?>`}
               </pre>

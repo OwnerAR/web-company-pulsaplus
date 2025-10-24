@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - Adzka Media Indoperkasa',
-  description: 'Kebijakan privasi Adzka Media Indoperkasa - Perlindungan data pribadi dan informasi pengguna.',
+  title: 'Privacy Policy - Pulsa Plus',
+  description: 'Kebijakan privasi Pulsa Plus - Perlindungan data pribadi dan informasi pengguna.',
   robots: {
     index: true,
     follow: true,
@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Pengenalan</h2>
                 <p className="text-gray-700 mb-4">
-                  Adzka Media Indoperkasa (&quot;kami&quot;, &quot;kita&quot;, &quot;perusahaan&quot;) menghormati privasi Anda dan berkomitmen untuk melindungi informasi pribadi yang Anda berikan kepada kami. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda.
+                  Pulsa Plus (&quot;kami&quot;, &quot;kita&quot;, &quot;perusahaan&quot;) menghormati privasi Anda dan berkomitmen untuk melindungi informasi pribadi yang Anda berikan kepada kami. Kebijakan Privasi ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi Anda.
                 </p>
               </section>
 
@@ -130,7 +130,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700">
-                    <strong>Email:</strong> privacy@adzka.co.id<br/>
+                    <strong>Email:</strong> privacy@pulsaplus.co.id<br/>
                     <strong>Telepon:</strong> +62-858-8844-4608<br/>
                     <strong>Alamat:</strong> Jl. Sudirman No. 123, Jakarta, DKI Jakarta 12190
                   </p>

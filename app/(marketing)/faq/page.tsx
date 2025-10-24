@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'FAQ - Pertanyaan Umum - Adzka Media Indoperkasa',
-  description: 'Pertanyaan umum dan jawaban seputar layanan Adzka Media Indoperkasa, aplikasi mobile, transaksi pulsa, dan paket data.',
-  keywords: ['FAQ', 'pertanyaan umum', 'bantuan', 'adzka', 'pulsa', 'paket data', 'aplikasi mobile'],
+  title: 'FAQ - Pertanyaan Umum - Pulsa Plus',
+  description: 'Pertanyaan umum dan jawaban seputar layanan Pulsa Plus, aplikasi mobile, transaksi pulsa, dan paket data.',
+  keywords: ['FAQ', 'pertanyaan umum', 'bantuan', 'Pulsa Plus', 'pulsa', 'paket data', 'aplikasi mobile'],
   robots: {
     index: true,
     follow: true,
@@ -16,16 +16,16 @@ export default function FAQPage() {
       category: "Aplikasi Mobile",
       questions: [
         {
-          question: "Bagaimana cara download aplikasi Adzka?",
-          answer: "Anda bisa download aplikasi Adzka melalui Google Play Store. Cari 'Adzka Reload' atau aplikasi lainnya dari developer 'Adzka Media Indoperkasa'. Pastikan download dari sumber resmi untuk keamanan."
+          question: "Bagaimana cara download aplikasi Pulsa Plus?",
+          answer: "Anda bisa download aplikasi Pulsa Plus melalui Google Play Store. Cari 'Pulsa Plus' atau aplikasi lainnya dari developer 'Pulsa Plus'. Pastikan download dari sumber resmi untuk keamanan."
         },
         {
-          question: "Apakah aplikasi Adzka gratis?",
-          answer: "Ya, semua aplikasi Adzka tersedia gratis di Google Play Store. Tidak ada biaya download atau registrasi untuk menggunakan aplikasi kami."
+          question: "Apakah aplikasi Pulsa Plus gratis?",
+          answer: "Ya, semua aplikasi Pulsa Plus tersedia gratis di Google Play Store. Tidak ada biaya download atau registrasi untuk menggunakan aplikasi kami."
         },
         {
-          question: "Aplikasi Adzka mendukung Android versi berapa?",
-          answer: "Aplikasi Adzka mendukung Android 5.0 (API level 21) ke atas. Pastikan perangkat Anda memiliki versi Android yang kompatibel untuk pengalaman terbaik."
+          question: "Aplikasi Pulsa Plus mendukung Android versi berapa?",
+          answer: "Aplikasi Pulsa Plus mendukung Android 5.0 (API level 21) ke atas. Pastikan perangkat Anda memiliki versi Android yang kompatibel untuk pengalaman terbaik."
         }
       ]
     },
@@ -34,7 +34,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "Bagaimana cara melakukan transaksi pulsa?",
-          answer: "Login ke aplikasi Adzka, pilih menu 'Pulsa', masukkan nomor tujuan, pilih nominal pulsa, lalu lakukan pembayaran. Transaksi akan diproses dalam hitungan detik."
+          answer: "Login ke aplikasi Pulsa Plus, pilih menu 'Pulsa', masukkan nomor tujuan, pilih nominal pulsa, lalu lakukan pembayaran. Transaksi akan diproses dalam hitungan detik."
         },
         {
           question: "Apakah ada batas minimum transaksi?",
@@ -55,7 +55,7 @@ export default function FAQPage() {
         },
         {
           question: "Bagaimana cara cek saldo?",
-          answer: "Login ke aplikasi Adzka, pilih menu 'Saldo' atau 'Profil' untuk melihat saldo terkini. Saldo akan terupdate real-time setelah setiap transaksi."
+          answer: "Login ke aplikasi Pulsa Plus, pilih menu 'Saldo' atau 'Profil' untuk melihat saldo terkini. Saldo akan terupdate real-time setelah setiap transaksi."
         },
         {
           question: "Apakah ada biaya admin untuk transaksi?",
@@ -68,7 +68,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "Bagaimana cara daftar akun baru?",
-          answer: "Download aplikasi Adzka, buka aplikasi, pilih 'Daftar', isi data yang diperlukan (nama, email, nomor HP), verifikasi melalui SMS, dan akun siap digunakan."
+          answer: "Download aplikasi Pulsa Plus, buka aplikasi, pilih 'Daftar', isi data yang diperlukan (nama, email, nomor HP), verifikasi melalui SMS, dan akun siap digunakan."
         },
         {
           question: "Bagaimana jika lupa password?",
@@ -89,11 +89,11 @@ export default function FAQPage() {
         },
         {
           question: "Bagaimana cara menghubungi customer service?",
-          answer: "Anda bisa menghubungi kami melalui WhatsApp di nomor yang tertera di website, atau melalui aplikasi Adzka di menu 'Bantuan'."
+          answer: "Anda bisa menghubungi kami melalui WhatsApp di nomor yang tertera di website, atau melalui aplikasi Pulsa Plus di menu 'Bantuan'."
         },
         {
           question: "Apakah ada biaya untuk customer service?",
-          answer: "Tidak ada biaya untuk menghubungi customer service. Layanan bantuan gratis untuk semua pengguna Adzka."
+          answer: "Tidak ada biaya untuk menghubungi customer service. Layanan bantuan gratis untuk semua pengguna Pulsa Plus."
         }
       ]
     }
@@ -108,7 +108,7 @@ export default function FAQPage() {
               FAQ - Pertanyaan Umum
             </h1>
             <p className="text-xl text-gray-600">
-              Temukan jawaban untuk pertanyaan yang sering diajukan tentang layanan Adzka Media Indoperkasa
+              Temukan jawaban untuk pertanyaan yang sering diajukan tentang layanan Pulsa Plus
             </p>
           </div>
 
@@ -157,7 +157,7 @@ export default function FAQPage() {
                   WhatsApp Customer Service
                 </a>
                 <a
-                  href="mailto:support@adzka.co.id"
+                  href="mailto:support@pulsaplus.co.id"
                   className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

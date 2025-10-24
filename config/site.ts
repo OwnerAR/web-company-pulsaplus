@@ -1,17 +1,10 @@
 export const siteConfig = {
-  name: "Adzka Media Indoperkasa",
+  name: "Pulsa Plus",
   description: "Professional digital services and solutions",
-  url: "https://adzkamedia.com",
-  email: "info@adzkamedia.com",
-  phone: "+62 123 4567 890",
-  address: "Jakarta, Indonesia",
-  social: {
-    facebook: "#",
-    twitter: "#",
-    instagram: "#",
-    linkedin: "#",
-    github: "#",
-  },
+  url: "https://pulsaplus.co.id",
+  email: "info@pulsaplus.co.id",
+  phone: "+62-895-0233-3331",
+  address: "Jl. Sudirman No. 123, Jakarta",
   navigation: [
     { name: "Home", href: "/" },
     { name: "Profile", href: "/profile" },

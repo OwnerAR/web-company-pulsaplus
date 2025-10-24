@@ -7,7 +7,7 @@ import { faRocket, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-20 sm:py-32">
+    <section className="relative overflow-hidden bg-gradient-to-b from-primary-50 to-white py-20 sm:py-32">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-4xl text-center">
           <motion.div
@@ -16,13 +16,13 @@ export function Hero() {
             transition={{ duration: 0.5 }}
           >
             <div className="mb-6 inline-flex items-center rounded-full border px-4 py-2 text-sm">
-              <FontAwesomeIcon icon={faRocket} className="mr-2 h-4 w-4 text-blue-600" />
+              <FontAwesomeIcon icon={faRocket} className="mr-2 h-4 w-4 text-primary-600" />
               <span>Solusi Digital Terpercaya</span>
             </div>
             
             <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-6xl">
               Wujudkan Bisnis Digital Anda Bersama{" "}
-              <span className="text-blue-600">Adzka Media</span>
+              <span className="text-gradient">Pulsa Plus</span>
             </h1>
             
             <p className="mb-8 text-lg text-gray-600 sm:text-xl">
@@ -33,7 +33,7 @@ export function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/service"
-                className="inline-flex items-center justify-center rounded-lg bg-blue-600 px-8 py-3 text-white font-medium hover:bg-blue-700 transition-colors"
+                className="inline-flex items-center justify-center rounded-lg bg-gradient-primary px-8 py-3 text-white font-medium hover:shadow-primary transition-all duration-300 transform hover:scale-105"
               >
                 Lihat Layanan
                 <FontAwesomeIcon icon={faArrowRight} className="ml-2 h-4 w-4" />

@@ -11,10 +11,10 @@ import {
 
 export const metadata: Metadata = {
   title: 'Service - Layanan Kami',
-  description: 'Layanan digital profesional Adzka Media Indoperkasa: Web Development, Mobile Apps, API Development, Cloud & DevOps, UI/UX Design. Solusi lengkap untuk bisnis Anda.',
+  description: 'Layanan digital profesional Pulsa Plus: Web Development, Mobile Apps, API Development, Cloud & DevOps, UI/UX Design. Solusi lengkap untuk bisnis Anda.',
   keywords: ['layanan', 'web development', 'mobile apps', 'api development', 'cloud devops', 'ui ux design', 'digital services'],
   openGraph: {
-    title: 'Layanan Digital Profesional - Adzka Media Indoperkasa',
+    title: 'Layanan Digital Profesional - Pulsa Plus',
     description: 'Web Development, Mobile Apps, API Development, Cloud & DevOps, UI/UX Design.',
     type: 'website',
   },

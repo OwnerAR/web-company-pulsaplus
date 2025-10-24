@@ -60,12 +60,12 @@ export function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="rounded-lg border bg-white p-8 shadow-sm hover:shadow-md transition-shadow"
+              className="rounded-lg border border-gradient bg-white p-8 shadow-sm hover:shadow-primary transition-all duration-300 transform hover:scale-105"
             >
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100 shadow-primary">
                 <FontAwesomeIcon
                   icon={feature.icon}
-                  className="h-6 w-6 text-blue-600"
+                  className="h-6 w-6 text-primary-600"
                 />
               </div>
               <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>

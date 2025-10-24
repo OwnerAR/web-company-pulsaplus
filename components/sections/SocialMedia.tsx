@@ -15,13 +15,13 @@ export function SocialMedia() {
             Social Media
           </h2>
           <p className="text-white/90 text-lg max-w-2xl mx-auto">
-            Follow sosial media Adzka Reload untuk dapatkan beragam promo dan saldo bonus untuk anda.
+            Follow sosial media Pulsa Plus untuk dapatkan beragam promo dan saldo bonus untuk anda.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
           <a
-            href={`https://api.whatsapp.com/send?phone=${csWA}&text=Halo, saya ingin bertanya tentang Adzka Reload.`}
+            href={`https://api.whatsapp.com/send?phone=${csWA}&text=Halo, saya ingin bertanya tentang Pulsa Plus.`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-gradient-to-r from-green-600 via-green-700 to-white hover:animate-gradient-x rounded-lg p-8 hover:shadow-xl transition-shadow group"
@@ -41,7 +41,7 @@ export function SocialMedia() {
           </a>
 
           <a
-            href="https://www.tiktok.com/@adzkareload.id"
+            href="https://www.tiktok.com/@Pulsa Plusreload.id"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 rounded-lg p-8 hover:shadow-xl hover:bg-gradient-to-r from-pink-500 via-red-500 to-black hover:animate-gradient-x transition-all duration-300 group"
@@ -55,10 +55,10 @@ export function SocialMedia() {
               </div>
               <div>
                 <h3 className="font-bold text-lg group-hover:text-white transition-colors">Join Tiktok</h3>
-                <p className="text-gray-600 group-hover:text-white transition-colors">@adzkareload.id</p>
+                <p className="text-gray-600 group-hover:text-white transition-colors">@Pulsa Plusreload.id</p>
               </div>
             </div>
-            <p className="text-sm text-gray-500 group-hover:text-white transition-colors">Join Tiktok Adzka Multipayment.</p>
+            <p className="text-sm text-gray-500 group-hover:text-white transition-colors">Join Tiktok Pulsa Plus Multipayment.</p>
           </a>
         </div>
       </div>

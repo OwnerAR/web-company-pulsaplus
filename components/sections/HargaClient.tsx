@@ -14,7 +14,7 @@ export function HargaClient() {
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-12 mb-12 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Harga</h1>
           <p className="text-white/90 text-lg">
-            Daftar harga produk Adzka Media Indoperkasa terlengkap dan termurah
+            Daftar harga produk Pulsa Plus terlengkap dan termurah
           </p>
         </div>
 
@@ -25,7 +25,7 @@ export function HargaClient() {
               src={priceIframeUrl}
               className="w-full border-0"
               style={{ minHeight: '800px', height: '100vh' }}
-              title="Daftar Harga Adzka"
+              title="Daftar Harga Pulsa Plus"
             />
           ) : (
             <div className="text-center py-12 px-4">
@@ -66,7 +66,7 @@ export function HargaClient() {
             Tertarik untuk Bergabung?
           </h2>
           <p className="text-white/90 mb-6 text-lg">
-            Download aplikasi Adzka Reload sekarang dan nikmati kemudahan transaksi
+            Download aplikasi Pulsa Plus sekarang dan nikmati kemudahan transaksi
           </p>
           <a
             href={appURL || "#"}

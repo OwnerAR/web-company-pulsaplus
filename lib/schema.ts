@@ -1,30 +1,30 @@
 export const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Adzka Media Indoperkasa",
+  "name": "Pulsa Plus",
   "description": "Professional digital services and solutions",
-  "url": process.env.NEXT_PUBLIC_SITE_URL || "https://adzka.co.id",
-  "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://adzka.co.id"}/images/logo.png`,
+  "url": process.env.NEXT_PUBLIC_SITE_URL || "https://pulsaplus.co.id",
+  "logo": `${process.env.NEXT_PUBLIC_SITE_URL || "https://pulsaplus.co.id"}/images/logo.png`,
   "contactPoint": [
     {
       "@type": "ContactPoint",
       "telephone": "+62-858-8844-4608",
       "contactType": "customer service",
-      "email": "info@adzka.co.id",
+      "email": "info@pulsaplus.co.id",
       "availableLanguage": ["Indonesian", "English"]
     },
     {
       "@type": "ContactPoint", 
       "telephone": "+62-895-0233-3331",
       "contactType": "sales",
-      "email": "sales@adzka.co.id",
+      "email": "sales@pulsaplus.co.id",
       "availableLanguage": ["Indonesian", "English"]
     },
     {
       "@type": "ContactPoint",
       "telephone": "+62-812-3456-7890", 
       "contactType": "technical support",
-      "email": "support@adzka.co.id",
+      "email": "support@pulsaplus.co.id",
       "availableLanguage": ["Indonesian", "English"]
     }
   ],
@@ -37,9 +37,9 @@ export const organizationSchema = {
     "addressCountry": "ID"
   },
   "sameAs": [
-    "https://www.facebook.com/adzkamedia",
-    "https://www.instagram.com/adzkamedia",
-    "https://www.twitter.com/adzkamedia"
+    "https://www.facebook.com/Pulsa Plusmedia",
+    "https://www.instagram.com/Pulsa Plusmedia",
+    "https://www.twitter.com/Pulsa Plusmedia"
   ],
   "foundingDate": "2014",
   "numberOfEmployees": "100+",
@@ -67,19 +67,19 @@ export const organizationSchema = {
 export const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Adzka Media Indoperkasa",
+  "name": "Pulsa Plus",
   "description": "Professional digital services and solutions",
-  "url": process.env.NEXT_PUBLIC_SITE_URL || "https://adzka.co.id",
+  "url": process.env.NEXT_PUBLIC_SITE_URL || "https://pulsaplus.co.id",
   "contactPhone": "+62-895-0233-3331",
   "publisher": {
     "@type": "Organization",
-    "name": "Adzka Media Indoperkasa"
+    "name": "Pulsa Plus"
   },
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
-      "urlTemplate": `${process.env.NEXT_PUBLIC_SITE_URL || "https://adzka.co.id"}/search?q={search_term_string}`
+      "urlTemplate": `${process.env.NEXT_PUBLIC_SITE_URL || "https://pulsaplus.co.id"}/search?q={search_term_string}`
     },
     "query-input": "required name=search_term_string"
   }
@@ -88,7 +88,7 @@ export const websiteSchema = {
 export const mobileAppSchema = {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
-  "name": "Adzka Reload",
+  "name": "Pulsa Plus",
   "description": "Aplikasi mobile untuk transaksi pulsa, paket data, dan layanan digital lainnya",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Android",
@@ -102,7 +102,7 @@ export const mobileAppSchema = {
     "ratingValue": "4.8",
     "ratingCount": "10000"
   },
-  "downloadUrl": process.env.NEXT_PUBLIC_ADZKA_RELOAD_APK_URL || "https://play.google.com/store/apps/details?id=com.otoreport.apkadzkareload"
+  "downloadUrl": process.env.NEXT_PUBLIC_APK_URL || "https://play.google.com/store/apps/details?id=com.otoreport.apkPulsa Plusreload"
 }
 
 export const serviceSchema = {
@@ -112,7 +112,7 @@ export const serviceSchema = {
   "description": "Professional digital services and solutions",
   "provider": {
     "@type": "Organization",
-    "name": "Adzka Media Indoperkasa"
+    "name": "Pulsa Plus"
   },
   "serviceType": "Digital Services",
   "areaServed": "Indonesia",

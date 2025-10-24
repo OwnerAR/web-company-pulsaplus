@@ -16,7 +16,7 @@ export default function DepositPage() {
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-8 sm:p-12 mb-12 text-center shadow-lg">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">Deposit</h1>
           <p className="text-white/90 text-base sm:text-lg max-w-2xl mx-auto">
-            Top up saldo Adzka Reload dengan mudah dan aman
+            Top up saldo Pulsa Plus dengan mudah dan aman
           </p>
         </div>
 

@@ -13,20 +13,20 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: {
-    template: '%s - Adzka Media Indoperkasa',
-    default: 'Adzka Media Indoperkasa - Digital Solutions',
+    template: '%s - Pulsa Plus',
+    default: 'Pulsa Plus - Digital Solutions',
   },
-  description: 'Adzka Media Indoperkasa - Perusahaan teknologi terpercaya dengan pengalaman 10+ tahun. Solusi digital profesional untuk transaksi pulsa, paket data, dan layanan digital lainnya.',
-  keywords: ['digital services', 'web development', 'API', 'software solutions', 'pulsa', 'paket data', 'mobile apps', 'adzka'],
+  description: 'Pulsa Plus - Perusahaan teknologi terpercaya dengan pengalaman 10+ tahun. Solusi digital profesional untuk transaksi pulsa, paket data, dan layanan digital lainnya.',
+  keywords: ['digital services', 'web development', 'API', 'software solutions', 'pulsa', 'paket data', 'mobile apps', 'Pulsa Plus'],
   authors: [{ 
-    name: 'Adzka Media Indoperkasa',
-    url: 'https://adzka.co.id',
+    name: 'Pulsa Plus',
+    url: 'https://pulsaplus.co.id',
   }],
-  creator: 'Adzka Media Indoperkasa',
-  publisher: 'Adzka Media Indoperkasa',
+  creator: 'Pulsa Plus',
+  publisher: 'Pulsa Plus',
   other: {
-    'privacy-policy': 'https://adzka.co.id/privacy-policy',
-    'terms-of-service': 'https://adzka.co.id/terms-of-service',
+    'privacy-policy': 'https://pulsaplus.co.id/privacy-policy',
+    'terms-of-service': 'https://pulsaplus.co.id/terms-of-service',
   },
   robots: {
     index: true,
@@ -40,19 +40,19 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: 'Adzka Media Indoperkasa',
+    title: 'Pulsa Plus',
     description: 'Professional digital services and solutions',
     images: ['/og-image.jpg'],
     type: 'website',
     locale: 'id_ID',
-    siteName: 'Adzka Media Indoperkasa',
+    siteName: 'Pulsa Plus',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Adzka Media Indoperkasa',
+    title: 'Pulsa Plus',
     description: 'Professional digital services and solutions',
     images: ['/og-image.jpg'],
-    creator: '@adzkamedia',
+    creator: '@Pulsa Plusmedia',
   },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {
     verification: {
@@ -77,6 +77,43 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        {/* PWA Meta Tags */}
+        <link rel="manifest" href="/images/manifest.json" />
+        <meta name="theme-color" content="#2563eb" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="Pulsa Plus" />
+        
+        {/* Favicon */}
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/favicon-96x96.png" />
+        
+        {/* Apple Touch Icons */}
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/apple-icon-57x57.png" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/apple-icon-60x60.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/apple-icon-72x72.png" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/apple-icon-76x76.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/apple-icon-114x114.png" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/apple-icon-120x120.png" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/apple-icon-144x144.png" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/apple-icon-152x152.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon-180x180.png" />
+        
+        {/* Android Icons */}
+        <link rel="icon" type="image/png" sizes="36x36" href="/images/android-icon-36x36.png" />
+        <link rel="icon" type="image/png" sizes="48x48" href="/images/android-icon-48x48.png" />
+        <link rel="icon" type="image/png" sizes="72x72" href="/images/android-icon-72x72.png" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/android-icon-96x96.png" />
+        <link rel="icon" type="image/png" sizes="144x144" href="/images/android-icon-144x144.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/images/android-icon-192x192.png" />
+        
+        {/* Microsoft Tiles */}
+        <meta name="msapplication-TileColor" content="#2563eb" />
+        <meta name="msapplication-TileImage" content="/images/ms-icon-144x144.png" />
+        <meta name="msapplication-config" content="/images/browserconfig.xml" />
+        
         {/* Google Tag Manager */}
         {gtmId && (
           <Script
@@ -146,7 +183,7 @@ export default function RootLayout({
         <Script id="chatwoot-sdk" strategy="afterInteractive">
           {`
             (function(d,t) {
-              var BASE_URL="https://chat.adzka.co.id";
+              var BASE_URL="https://chat.pulsaplus.co.id";
               var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
               g.src=BASE_URL+"/packs/js/sdk.js";
               g.async = true;

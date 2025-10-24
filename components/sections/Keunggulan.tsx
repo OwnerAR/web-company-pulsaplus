@@ -12,7 +12,7 @@ const keunggulan = [
   {
     icon: faBook,
     title: "Praktis",
-    description: "1 Saldo untuk semua pilihan produk di Adzka",
+    description: "1 Saldo untuk semua pilihan produk di Pulsa Plus",
   },
   {
     icon: faHandshake,
@@ -27,10 +27,10 @@ export function Keunggulan() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h4 className="text-blue-600 font-semibold mb-2">
-            Kenapa memilih Adzka Reload?
+            Kenapa memilih Pulsa Plus?
           </h4>
           <h2 className="text-3xl sm:text-4xl font-bold">
-            Keunggulan Adzka
+            Keunggulan Pulsa Plus
           </h2>
         </div>
 

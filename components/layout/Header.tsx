@@ -18,25 +18,24 @@ export function Header() {
     { name: "Pendaftaran", href: "/pendaftaran" },
     { name: "Dokumentasi", href: "/api-docs" },
     { name: "Profile", href: "/profile" },
-    { name: "Aplikasi Mobile", href: "/aplikasi-mobile" },
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x shadow-lg">
+    <header className="sticky top-0 z-50 w-full bg-gradient-brand bg-[length:200%_100%] animate-gradient-x shadow-primary backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
             <Image
-              src="/images/logo.png"
-              alt="Adzka Reload"
+              src="/images/logo.svg"
+              alt="Pulsa Plus"
               width={200}
-              height={57}
+              height={60}
               className="h-12 w-auto"
               priority
             />
             <span className="hidden md:inline text-2xl font-bold text-white">
-              Adzka Media Indoperkasa
+              Pulsa Plus
             </span>
           </Link>
 

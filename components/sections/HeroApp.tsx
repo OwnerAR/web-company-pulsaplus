@@ -26,10 +26,10 @@ export function HeroApp() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-black mb-6">
-              Aplikasi Adzka Reload
+              Aplikasi Pulsa Plus
             </h1>
             <p className="text-lg text-gray-700 mb-8">
-              Bersama Adzka Reload, tambahkan produk, dorong penjualan, tingkatkan penghasilan.
+              Bersama Pulsa Plus, tambahkan produk, dorong penjualan, tingkatkan penghasilan.
             </p>
             <Link
               href={appURL || "#"}
@@ -50,7 +50,7 @@ export function HeroApp() {
             <div className="relative w-full max-w-lg">
               <Image
                 src="/images/section-hero.png"
-                alt="Aplikasi Adzka Reload"
+                alt="Aplikasi Pulsa Plus"
                 width={800}
                 height={800}
                 className="w-full h-auto"

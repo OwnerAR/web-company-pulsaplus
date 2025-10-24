@@ -1,4 +1,4 @@
-# Web Company - Adzka Media Indoperkasa
+# Web Company - Pulsa Plus
 
 Website Company Profile profesional yang dibangun dengan Next.js 15, TypeScript, dan Tailwind CSS.
 
@@ -130,7 +130,7 @@ npm run start
 Jika diperlukan, buat file `.env.local`:
 
 ```env
-NEXT_PUBLIC_API_URL=https://api.adzkamedia.com
+NEXT_PUBLIC_API_URL=https://api.Pulsa Plusmedia.com
 ```
 
 ## 🤝 Contributing
@@ -143,9 +143,9 @@ This project is licensed under the ISC License.
 
 ## 👨‍💻 Author
 
-**Adzka Media Indoperkasa**
-- Website: [https://adzkamedia.com](https://adzkamedia.com)
-- Email: info@adzkamedia.com
+**Pulsa Plus**
+- Website: [https://Pulsa Plusmedia.com](https://Pulsa Plusmedia.com)
+- Email: info@Pulsa Plusmedia.com
 
 ## 🙏 Acknowledgments
 
@@ -156,7 +156,7 @@ This project is licensed under the ISC License.
 
 ---
 
-Made with ❤️ by Adzka Media Indoperkasa
+Made with ❤️ by Pulsa Plus
 
 
 

@@ -4,10 +4,10 @@ import { SidebarNavigation } from "@/components/sections/SidebarNavigation";
 
 export const metadata: Metadata = {
   title: 'API Documentation - Panduan API',
-  description: 'Dokumentasi lengkap API Adzka Media Indoperkasa. Panduan penggunaan API untuk transaksi pulsa, paket data, dan layanan digital lainnya.',
-  keywords: ['api documentation', 'panduan api', 'api adzka', 'dokumentasi api', 'transaksi pulsa api'],
+  description: 'Dokumentasi lengkap API Pulsa Plus. Panduan penggunaan API untuk transaksi pulsa, paket data, dan layanan digital lainnya.',
+  keywords: ['api documentation', 'panduan api', 'api Pulsa Plus', 'dokumentasi api', 'transaksi pulsa api'],
   openGraph: {
-    title: 'API Documentation - Adzka Media Indoperkasa',
+    title: 'API Documentation - Pulsa Plus',
     description: 'Dokumentasi lengkap API untuk transaksi pulsa, paket data, dan layanan digital.',
     type: 'website',
   },

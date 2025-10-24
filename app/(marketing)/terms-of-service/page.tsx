@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - Adzka Media Indoperkasa',
-  description: 'Syarat dan ketentuan layanan Adzka Media Indoperkasa - Aturan penggunaan platform dan layanan digital.',
+  title: 'Terms of Service - Pulsa Plus',
+  description: 'Syarat dan ketentuan layanan Pulsa Plus - Aturan penggunaan platform dan layanan digital.',
   robots: {
     index: true,
     follow: true,
@@ -27,14 +27,14 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Penerimaan Syarat</h2>
                 <p className="text-gray-700 mb-4">
-                  Dengan mengakses dan menggunakan layanan Adzka Media Indoperkasa (&quot;Layanan&quot;), Anda menyetujui untuk terikat oleh syarat dan ketentuan ini (&quot;Syarat&quot;). Jika Anda tidak menyetujui syarat ini, harap tidak menggunakan Layanan kami.
+                  Dengan mengakses dan menggunakan layanan Pulsa Plus (&quot;Layanan&quot;), Anda menyetujui untuk terikat oleh syarat dan ketentuan ini (&quot;Syarat&quot;). Jika Anda tidak menyetujui syarat ini, harap tidak menggunakan Layanan kami.
                 </p>
               </section>
 
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Deskripsi Layanan</h2>
                 <p className="text-gray-700 mb-4">
-                  Adzka Media Indoperkasa menyediakan layanan digital termasuk:
+                  Pulsa Plus menyediakan layanan digital termasuk:
                 </p>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
                   <li>Transaksi pulsa dan paket data</li>
@@ -103,7 +103,7 @@ export default function TermsOfServicePage() {
               <section className="mb-8">
                 <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Kekayaan Intelektual</h2>
                 <p className="text-gray-700 mb-4">
-                  Semua konten, fitur, dan fungsionalitas Layanan adalah milik Adzka Media Indoperkasa dan dilindungi oleh hukum hak cipta, merek dagang, dan kekayaan intelektual lainnya. Anda tidak boleh:
+                  Semua konten, fitur, dan fungsionalitas Layanan adalah milik Pulsa Plus dan dilindungi oleh hukum hak cipta, merek dagang, dan kekayaan intelektual lainnya. Anda tidak boleh:
                 </p>
                 <ul className="list-disc list-inside text-gray-700 space-y-1">
                   <li>Menyalin, memodifikasi, atau mendistribusikan konten kami</li>
@@ -160,7 +160,7 @@ export default function TermsOfServicePage() {
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700">
-                    <strong>Email:</strong> legal@adzka.co.id<br/>
+                    <strong>Email:</strong> legal@pulsaplus.co.id<br/>
                     <strong>Telepon:</strong> +62-858-8844-4608<br/>
                     <strong>Alamat:</strong> Jl. Sudirman No. 123, Jakarta, DKI Jakarta 12190
                   </p>
