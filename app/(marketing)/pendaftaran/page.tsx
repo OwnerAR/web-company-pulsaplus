@@ -17,7 +17,7 @@ export default function PendaftaranPage() {
         <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-12 mb-12 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Pendaftaran</h1>
           <p className="text-white/90 text-lg">
-            Daftar menjadi member Pulsa Plus dan nikmati kemudahan transaksi
+          Pendaftaran Khusus MK Kuota hanya 50 Orang, otomatis close jika sudah memenuhi Kuota
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function PendaftaranPage() {
             </div>
             <h3 className="font-bold mb-2">Bonus Selamat Datang</h3>
             <p className="text-sm text-gray-600">
-              Dapatkan bonus saldo Rp 5.000 untuk member baru
+              Dapatkan berbagai bonus selamat datang dari kami
             </p>
           </div>
           <div className="bg-white rounded-lg shadow-sm p-6 text-center border">
