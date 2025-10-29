@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     description: 'Platform terpercaya untuk layanan pulsa, paket data, e-wallet, dan berbagai kebutuhan digital dengan harga terbaik dan transaksi yang aman.',
     images: [
       {
-        url: '/og-image.svg',
+        url: '/images/og-image.svg',
         width: 1200,
         height: 630,
         alt: 'Pulsa Plus - Platform Terpercaya untuk Layanan Digital',
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Pulsa Plus - Platform Terpercaya untuk Layanan Digital',
     description: 'Platform terpercaya untuk layanan pulsa, paket data, e-wallet, dan berbagai kebutuhan digital dengan harga terbaik dan transaksi yang aman.',
-    images: ['/og-image.svg'],
+    images: ['/images/og-image.svg'],
     creator: '@Pulsa Plusmedia',
   },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && {

@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 
 export default function PendaftaranPage() {
   const csWA = process.env.NEXT_PUBLIC_CONTACT_WA;
+  const formUrl = process.env.NEXT_PUBLIC_FORM_URL;
 
   return (
     <div className="py-20">
@@ -21,134 +22,25 @@ export default function PendaftaranPage() {
         </div>
 
         {/* Registration Form */}
-        <div className="max-w-2xl mx-auto bg-white rounded-lg shadow-sm p-8 border mb-12">
+        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8 border mb-12">
           <h2 className="text-2xl font-bold mb-6 text-center">Form Pendaftaran</h2>
           
-          <form className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="nama" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nama Lengkap *
-                </label>
-                <input
-                  type="text"
-                  id="nama"
-                  name="nama"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Masukkan nama lengkap"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Masukkan email"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="telepon" className="block text-sm font-medium text-gray-700 mb-2">
-                  Nomor Telepon *
-                </label>
-                <input
-                  type="tel"
-                  id="telepon"
-                  name="telepon"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Masukkan nomor telepon"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="kota" className="block text-sm font-medium text-gray-700 mb-2">
-                  Kota *
-                </label>
-                <input
-                  type="text"
-                  id="kota"
-                  name="kota"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Masukkan kota"
-                />
-              </div>
-            </div>
-
-            <div>
-              <label htmlFor="alamat" className="block text-sm font-medium text-gray-700 mb-2">
-                Alamat Lengkap *
-              </label>
-              <textarea
-                id="alamat"
-                name="alamat"
-                required
-                rows={3}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Masukkan alamat lengkap"
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
-                  Username *
-                </label>
-                <input
-                  type="text"
-                  id="username"
-                  name="username"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Masukkan username"
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                  Password *
-                </label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Masukkan password"
-                />
-              </div>
-            </div>
-
-            <div className="flex items-start">
-              <input
-                type="checkbox"
-                id="syarat"
-                name="syarat"
-                required
-                className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-              />
-              <label htmlFor="syarat" className="ml-2 text-sm text-gray-600">
-                Saya setuju dengan <a href="#" className="text-blue-600 hover:underline">Syarat dan Ketentuan</a> yang berlaku *
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium"
-            >
-              Daftar Sekarang
-            </button>
-          </form>
+          {/* Iframe Registration Form */}
+          <div className="relative w-full" style={{ height: '500px' }}>
+            <iframe
+              width="100%"
+              height="100%"
+              scrolling="no"
+              style={{ 
+                position: 'absolute', 
+                height: '100%', 
+                border: 'none',
+                borderRadius: '8px'
+              }}
+              src={formUrl}
+              title="Form Pendaftaran Pulsa Plus"
+            />
+          </div>
         </div>
 
         {/* Benefits */}
