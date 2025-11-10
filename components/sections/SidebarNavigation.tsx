@@ -104,8 +104,8 @@ export function SidebarNavigation() {
                   onMouseEnter={(e) => {
                     const h3 = e.currentTarget.querySelector('h3');
                     const p = e.currentTarget.querySelector('p');
-                    if (h3) h3.style.color = 'white';
-                    if (p) p.style.color = 'white';
+                    if (h3) h3.style.color = 'Blue';
+                    if (p) p.style.color = 'black';
                   }}
                   onMouseLeave={(e) => {
                     const h3 = e.currentTarget.querySelector('h3');
@@ -121,7 +121,7 @@ export function SidebarNavigation() {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-lg text-gray-900 transition-all duration-300">
+                    <h3 className="font-semibold text-lg text-black transition-all duration-300">
                       {item.label}
                     </h3>
                     <p className="text-sm text-gray-600 transition-all duration-300 truncate">

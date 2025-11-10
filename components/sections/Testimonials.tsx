@@ -8,18 +8,48 @@ const testimonials = [
   {
     name: "Yolla Ghiena",
     role: "Pengguna Pulsa Plus",
-    content: "Aplikasi yg sangat membantu sekali. Simple. Harga yg ekonomis, sangat cocok untuk berjualan pulsa. keuntungan yg di dapat juga besar. poin nya banyak, pelayanan server nya juga cepat. smoga lancar terus Pulsa Plus....",
+    content: "Pulsa Plus jadi partner andalan saya buat jualan pulsa di rumah. Fiturnya simpel, harga bersaing, dan setiap transaksi terasa sat-set tanpa drama.",
   },
   {
     name: "Wartinah",
     role: "Pengguna Pulsa Plus",
-    content: "Selama jadi mitra Pulsa Plusreload Alhamdulilah bisa produktif Walaupon hanya dari rumah ...Semua transaksi slalu lancar Cs y ramah Dan kalau ada problem cs selalu cepat respon....Terimakasih Semoga Terus menjadi Ladang cuan Q😘",
+    content: "Sejak gabung Pulsa Plus, saya bisa tambah pemasukan sambil tetap urus keluarga. Kalau ada kendala, CS-nya langsung sigap bantu sampai selesai.",
   },
   {
     name: "Akang Yanto",
     role: "Pengguna Pulsa Plus",
-    content: "Aplikasi yg mantap murah juga Yg paling mantap klo komplain langsung satset GK kaya aplikasi sebeleh pokona mah josss",
+    content: "Aplikasinya ringan, harga produknya masuk akal. Yang paling bikin nagih itu respon komplainnya cepat, jadi pelanggan saya tetap puas.",
   },
+  {
+    name: "Boby I",
+    role: "Pengguna Pulsa Plus",
+    content: "Dulu harus ke konter buat isi saldo, sekarang bisa langsung dari genggaman. Transaksinya cepat, laporan penjualannya juga jelas.",
+  },
+  {
+    name: "Susi Susanti",
+    role: "Pengguna Pulsa Plus",
+    content: "Saya senang karena katalog produknya lengkap, mulai dari pulsa sampai tagihan. Semua bisa saya tawarkan ke pelanggan tanpa ribet.",
+  },
+  {
+    name: "Budi Santoso",
+    role: "Pengguna Pulsa Plus",
+    content: "Sudah tiga tahun pakai Pulsa Plus, saya belum kepikiran pindah. Fitur pencatatannya rapi, jadi gampang buat hitung keuntungan tiap bulan.",
+  },
+  {
+    name: "Rini Rahmawati",
+    role: "Pengguna Pulsa Plus",
+    content: "Pulsa Plus bantu saya melayani pelanggan via WhatsApp tanpa telat. Sekali klik pesanan beres, saya bisa lanjut ke kerjaan lain.",
+  },
+  {
+    name: "Dedi Sutrisno",
+    role: "Pengguna Pulsa Plus",
+    content: "Saya percaya sama Pulsa Plus karena servernya stabil. Orderan ramai menjelang gajian tetap lancar, tidak takut pending.",
+  },
+  {
+    name: "Eka Prasetyo",
+    role: "Pengguna Pulsa Plus",
+    content: "Kalau butuh top up PPOB dadakan, Pulsa Plus selalu ready. Tinggal pilih produk, bayar, dan bukti transaksinya langsung terkirim.",
+  }
 ];
 
 export function Testimonials() {
@@ -62,7 +92,7 @@ export function Testimonials() {
               </button>
               <button
                 onClick={nextTestimonial}
-                className="h-12 w-12 rounded-full bg-primary-600 text-white hover:bg-primary-700 hover:shadow-primary transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+                className="h-12 w-12 rounded-full bg-blue-600 text-white hover:bg-blue-700 hover:shadow-primary transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
                 aria-label="Next testimonial"
               >
                 <FontAwesomeIcon icon={faChevronRight} />
@@ -75,7 +105,7 @@ export function Testimonials() {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`h-2 rounded-full transition-all ${
-                    index === currentIndex ? "w-8 bg-primary-600" : "w-2 bg-gray-300"
+                    index === currentIndex ? "w-8 bg-blue-600" : "w-2 bg-gray-300"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { organizationSchema, websiteSchema } from "@/lib/schema";
+import { FloatingTransactions } from "@/components/common/FloatingTransactions";
 
 const inter = Inter({
   subsets: ['latin'],
@@ -217,6 +218,7 @@ export default function RootLayout({
         </Script>
         
         {children}
+        <FloatingTransactions />
       </body>
     </html>
   );

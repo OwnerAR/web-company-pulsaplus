@@ -56,9 +56,15 @@ export function Products() {
               key={index}
               className="bg-white rounded-xl shadow-md hover:shadow-primary transition-all duration-300 p-6 sm:p-8 border border-gray-100 hover:border-primary-200 group"
             >
-              <div className="mb-5 flex justify-center">
-                <div className="inline-flex h-16 w-16 items-center justify-center rounded-xl bg-primary-100 group-hover:bg-primary-600 transition-colors duration-300">
-                  <FontAwesomeIcon icon={product.icon} className="h-8 w-8 text-primary-600 group-hover:text-white transition-colors duration-300" />
+              <div className="mb-6 flex justify-center">
+                <div className="relative flex h-28 w-28 items-center justify-center">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary-200 via-primary-300 to-primary-100 blur-lg opacity-70 group-hover:opacity-90 transition-opacity duration-300" />
+                  <div className="relative inline-flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-primary-700 via-primary-600 to-primary-400 text-white shadow-lg shadow-primary/30 group-hover:scale-110 group-hover:shadow-primary/60 transition-transform duration-300">
+                    <FontAwesomeIcon
+                      icon={product.icon}
+                      className="text-4xl sm:text-5xl text-blue-600 group-hover:text-blue-800 drop-shadow-md transition-colors duration-300"
+                    />
+                  </div>
                 </div>
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-900 text-center group-hover:text-primary-600 transition-colors duration-300">

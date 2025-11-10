@@ -82,7 +82,7 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-lg">Channel Telegram</h4>
             <a
-              href="https://t.me/InfoPulsa PlusPayment"
+              href="https://t.me/pulsaplusinfo"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white/90 hover:text-white transition-colors"
