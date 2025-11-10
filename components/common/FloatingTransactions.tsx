@@ -199,13 +199,13 @@ export function FloatingTransactions() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % transactions.length);
-    }, 1);
+    }, 1500);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="pointer-events-none fixed bottom-6 right-6 z-[60] max-w-xs sm:max-w-sm">
+    <div className="pointer-events-none fixed bottom-6 left-6 z-[60] max-w-xs sm:max-w-sm">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentTransaction.id}
