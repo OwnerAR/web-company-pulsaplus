@@ -130,9 +130,9 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <p className="text-gray-700">
-                    <strong>Email:</strong> privacy@pulsaplus.co.id<br/>
-                    <strong>Telepon:</strong> +62-858-8844-4608<br/>
-                    <strong>Alamat:</strong> Jl. Sudirman No. 123, Jakarta, DKI Jakarta 12190
+                    <strong>Email:</strong> support@pulsaplus.co.id<br/>
+                    <strong>Telepon:</strong> +62-889-7001-0000<br/>
+                    <strong>Alamat:</strong> Jl. Sawah Luhur , Kasemen Serang, Banten
                   </p>
                 </div>
               </section>
