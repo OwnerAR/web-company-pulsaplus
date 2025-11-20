@@ -8,8 +8,8 @@ export function HargaClient() {
   const appURL = process.env.NEXT_PUBLIC_APP_URL;
 
   return (
-    <div className="py-20">
-      <div className="container mx-auto px-4">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 sm:py-20">
+      <div className="container mx-auto px-4 max-w-7xl">
         {/* Header */}
         <div className="bg-[#2373B6] dark:bg-[#1e3a8a] rounded-2xl p-12 mb-12 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Harga</h1>

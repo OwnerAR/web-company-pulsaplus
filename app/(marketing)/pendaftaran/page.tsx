@@ -11,7 +11,7 @@ export default function PendaftaranPage() {
   const formUrl = process.env.NEXT_PUBLIC_FORM_URL;
 
   return (
-    <div className="py-20">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-16 sm:py-20">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="bg-[#2373B6] dark:bg-[#1e3a8a] rounded-2xl p-12 mb-12 text-center">
