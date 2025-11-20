@@ -59,7 +59,7 @@ export function SocialMedia() {
                 <p className="text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors">{tiktokUser}</p>
               </div>
             </div>
-            <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-white transition-colors">Join Tiktok Pulsa Plus Multipayment.</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 group-hover:text-white transition-colors">Join Tiktok Pulsa Plus.</p>
           </a>
         </div>
       </div>
