@@ -6,6 +6,7 @@ import { faTiktok } from "@fortawesome/free-brands-svg-icons";
 
 export function SocialMedia() {
   const csWA = process.env.NEXT_PUBLIC_CONTACT_WA;
+  const tiktokUser = process.env.NEXT_PUBLIC_TIKTOK_USER;
 
   return (
     <section className="bg-[#2373B6] dark:bg-[#1e3a8a] py-20">
@@ -27,10 +28,10 @@ export function SocialMedia() {
             className="bg-white dark:bg-gray-800 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-gradient-to-r from-green-600 via-green-700 to-white dark:hover:from-green-700 dark:hover:via-green-800 dark:hover:to-gray-900 hover:animate-gradient-x rounded-lg p-8 hover:shadow-xl transition-shadow group"
           >
             <div className="flex items-center gap-4 mb-4">
-              <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-green-900/50 group-hover:bg-white dark:group-hover:bg-green-600 transition-colors flex items-center justify-center">
+              <div className="h-16 w-16 rounded-full bg-green-100 dark:bg-gray-700 group-hover:bg-white dark:group-hover:bg-green-600 transition-colors flex items-center justify-center">
                 <FontAwesomeIcon
                   icon={faWhatsapp}
-                  className="h-8 w-8 text-green-600 dark:text-green-400 group-hover:text-green-600 transition-colors"
+                  className="h-8 w-8 text-green-600 dark:text-white group-hover:text-green-600 dark:group-hover:text-white transition-colors"
                 />
               </div>
               <div>
@@ -41,7 +42,7 @@ export function SocialMedia() {
           </a>
 
           <a
-            href="https://www.tiktok.com/@Pulsa Plusreload.id"
+            href={`https://www.tiktok.com/${tiktokUser}`}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-white dark:bg-gray-800 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 rounded-lg p-8 hover:shadow-xl hover:bg-gradient-to-r from-pink-500 via-red-500 to-black dark:hover:from-pink-600 dark:hover:via-red-600 dark:hover:to-gray-900 hover:animate-gradient-x transition-all duration-300 group"

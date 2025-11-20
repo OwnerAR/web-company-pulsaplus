@@ -121,10 +121,10 @@ export function SidebarNavigation() {
                     />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-lg text-black dark:text-white transition-all duration-300 group-hover:text-white dark:group-hover:text-white">
+                    <h3 className="font-semibold text-lg text-black dark:text-white transition-all duration-300 group-hover:text-[#2373B6] dark:group-hover:text-white">
                       {item.label}
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-300 transition-all duration-300 truncate group-hover:text-white dark:group-hover:text-white/90">
+                    <p className="text-sm text-gray-600 dark:text-gray-300 transition-all duration-300 truncate group-hover:text-gray-800 dark:group-hover:text-white/90">
                       {item.description}
                     </p>
                   </div>
