@@ -205,7 +205,7 @@ export function FloatingTransactions() {
   }, []);
 
   return (
-    <div className="pointer-events-none fixed bottom-6 left-6 z-[60] max-w-xs sm:max-w-sm">
+    <div className="pointer-events-none fixed bottom-4 left-3 sm:bottom-6 sm:left-6 z-[60] max-w-[200px] sm:max-w-xs md:max-w-sm">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentTransaction.id}
@@ -213,23 +213,23 @@ export function FloatingTransactions() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="pointer-events-auto rounded-2xl bg-white/95 dark:bg-gray-800/95 px-5 py-4 shadow-xl shadow-blue-500/10 dark:shadow-gray-900/50 ring-1 ring-blue-100 dark:ring-gray-700 backdrop-blur"
+          className="pointer-events-auto rounded-xl sm:rounded-2xl bg-white/95 dark:bg-gray-800/95 px-3 py-2.5 sm:px-5 sm:py-4 shadow-xl shadow-blue-500/10 dark:shadow-gray-900/50 ring-1 ring-blue-100 dark:ring-gray-700 backdrop-blur"
         >
-          <div className="flex items-start gap-3">
-            <div className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400">
-              <FontAwesomeIcon icon={faCheckCircle} className="h-5 w-5" />
+          <div className="flex items-start gap-2 sm:gap-3">
+            <div className="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex-shrink-0">
+              <FontAwesomeIcon icon={faCheckCircle} className="h-4 w-4 sm:h-5 sm:w-5" />
             </div>
-            <div className="flex-1 text-sm text-gray-700 dark:text-gray-300">
-              <div className="flex items-center justify-between text-gray-500 dark:text-gray-400">
-                <span className="font-semibold text-blue-600 dark:text-blue-400">
+            <div className="flex-1 min-w-0 text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+              <div className="flex items-center justify-between gap-2 text-gray-500 dark:text-gray-400">
+                <span className="font-semibold text-blue-600 dark:text-blue-400 truncate">
                   {maskPhoneNumber(currentTransaction.phone)}
                 </span>
-                <span className="text-xs">{currentTransaction.timeAgo}</span>
+                <span className="text-[10px] sm:text-xs whitespace-nowrap">{currentTransaction.timeAgo}</span>
               </div>
-              <p className="mt-1 font-medium text-gray-900 dark:text-white">
+              <p className="mt-0.5 sm:mt-1 font-medium text-gray-900 dark:text-white text-xs sm:text-sm truncate">
                 {currentTransaction.product}
               </p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
+              <p className="text-[10px] sm:text-xs text-gray-500 dark:text-gray-400 truncate">
                 {maskAmount(currentTransaction.amount)} • {maskAgent(currentTransaction.agent)}
               </p>
             </div>
