@@ -53,7 +53,7 @@ body {
 }
 
 .bg-gradient-secondary {
-  background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
+  background: linear-gradient(135deg, var(--secondary-400), var(--secondary-500));
 }
 
 .bg-gradient-brand {
