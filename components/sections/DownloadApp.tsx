@@ -7,7 +7,7 @@ export function DownloadApp() {
   const appURL = process.env.NEXT_PUBLIC_APP_URL;
 
   return (
-    <section className="bg-gradient-brand bg-[length:200%_100%] animate-gradient-x py-20">
+    <section className="bg-[#2373B6] dark:bg-[#1e3a8a] py-20">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-white">
@@ -20,7 +20,7 @@ export function DownloadApp() {
             <Link
               href={appURL || "#"}
               target="_blank"
-              className="inline-flex items-center justify-center rounded-lg bg-white px-8 py-3 text-blue-600 font-medium hover:bg-gray-100 hover:shadow-primary transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center justify-center rounded-lg bg-white dark:bg-gray-800 px-8 py-3 text-blue-600 dark:text-blue-400 font-medium hover:bg-gray-100 dark:hover:bg-gray-700 hover:shadow-primary transition-all duration-300 transform hover:scale-105"
             >
               Download App
             </Link>

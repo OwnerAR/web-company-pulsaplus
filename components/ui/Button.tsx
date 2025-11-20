@@ -13,11 +13,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           "inline-flex items-center justify-center rounded-md font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none",
           {
-            "bg-blue-600 text-white hover:bg-blue-700": variant === "default",
-            "border border-gray-300 bg-white hover:bg-gray-50":
+            "bg-[#2373B6] dark:bg-[#1e3a8a] text-white hover:bg-[#1d5a9a] dark:hover:bg-[#1a2f6b]": variant === "default",
+            "border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700":
               variant === "outline",
-            "hover:bg-gray-100": variant === "ghost",
-            "text-blue-600 underline-offset-4 hover:underline":
+            "hover:bg-gray-100 dark:hover:bg-gray-800": variant === "ghost",
+            "text-[#2373B6] dark:text-[#60a5fa] underline-offset-4 hover:underline":
               variant === "link",
           },
           {

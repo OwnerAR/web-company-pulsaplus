@@ -45,13 +45,13 @@ const features = [
 
 export function Features() {
   return (
-    <section className="py-20 sm:py-32">
+    <section className="py-20 sm:py-32 bg-white dark:bg-gray-900">
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4">
+          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl mb-4 text-gray-900 dark:text-white">
             Kenapa Memilih Kami?
           </h2>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 dark:text-gray-300">
             Kami menyediakan solusi digital terbaik dengan teknologi modern dan tim yang berpengalaman
           </p>
         </div>
@@ -60,16 +60,16 @@ export function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="rounded-lg border border-gradient bg-white p-8 shadow-sm hover:shadow-primary transition-all duration-300 transform hover:scale-105"
+              className="rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-8 shadow-sm dark:shadow-gray-900/50 hover:shadow-lg transition-all duration-300 transform hover:scale-105"
             >
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary-100 shadow-primary">
+              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/50">
                 <FontAwesomeIcon
                   icon={feature.icon}
-                  className="h-6 w-6 text-primary-600"
+                  className="h-6 w-6 text-[#2373B6] dark:text-[#60a5fa]"
                 />
               </div>
-              <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
+              <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">{feature.title}</h3>
+              <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
             </div>
           ))}
         </div>

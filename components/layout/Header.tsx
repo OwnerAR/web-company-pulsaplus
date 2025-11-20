@@ -21,7 +21,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-gradient-brand bg-[length:200%_100%] animate-gradient-x shadow-primary backdrop-blur-sm">
+    <header className="sticky top-0 z-50 w-full bg-[#2373B6] dark:bg-[#1e3a8a] shadow-lg backdrop-blur-sm">
       <div className="container mx-auto px-4">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}

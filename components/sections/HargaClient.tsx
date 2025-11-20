@@ -11,7 +11,7 @@ export function HargaClient() {
     <div className="py-20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-12 mb-12 text-center">
+        <div className="bg-[#2373B6] dark:bg-[#1e3a8a] rounded-2xl p-12 mb-12 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Harga</h1>
           <p className="text-white/90 text-lg">
             Daftar harga produk Pulsa Plus terlengkap dan termurah
@@ -41,27 +41,27 @@ export function HargaClient() {
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
               <FontAwesomeIcon icon={faMobileAlt} className="h-6 w-6 text-blue-600" />
             </div>
-            <h3 className="font-bold mb-2">Update Real-time</h3>
-            <p className="text-sm text-gray-600">Harga selalu update mengikuti kondisi pasar</p>
+            <h3 className="font-bold mb-2 text-black">Update Real-time</h3>
+            <p className="text-sm text-black">Harga selalu update mengikuti kondisi pasar</p>
           </div>
           <div className="bg-blue-50 rounded-lg p-6 text-center">
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
               <FontAwesomeIcon icon={faMoneyBillWave} className="h-6 w-6 text-blue-600" />
             </div>
-            <h3 className="font-bold mb-2">Harga Termurah</h3>
+            <h3 className="font-bold mb-2 text-black">Harga Termurah</h3>
             <p className="text-sm text-gray-600">Dapatkan harga terbaik untuk semua produk</p>
           </div>
           <div className="bg-blue-50 rounded-lg p-6 text-center">
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
               <FontAwesomeIcon icon={faBolt} className="h-6 w-6 text-blue-600" />
             </div>
-            <h3 className="font-bold mb-2">Transaksi Cepat</h3>
-            <p className="text-sm text-gray-600">Proses transaksi dalam hitungan detik</p>
+            <h3 className="font-bold mb-2 text-black">Transaksi Cepat</h3>
+            <p className="text-sm text-black">Proses transaksi dalam hitungan detik</p>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-12">
+        <div className="mt-12 text-center bg-[#2373B6] dark:bg-[#1e3a8a] rounded-2xl p-12">
           <h2 className="text-3xl font-bold text-white mb-4">
             Tertarik untuk Bergabung?
           </h2>

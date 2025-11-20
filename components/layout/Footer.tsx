@@ -40,7 +40,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-gradient-brand bg-[length:200%_100%] animate-gradient-x text-white">
+    <footer className="bg-[#2373B6] dark:bg-[#1e3a8a] text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}

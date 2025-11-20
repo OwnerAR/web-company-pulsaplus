@@ -14,7 +14,7 @@ export default function PendaftaranPage() {
     <div className="py-20">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-blue-800 bg-[length:200%_100%] animate-gradient-x rounded-2xl p-12 mb-12 text-center">
+        <div className="bg-[#2373B6] dark:bg-[#1e3a8a] rounded-2xl p-12 mb-12 text-center">
           <h1 className="text-4xl font-bold text-white mb-4">Pendaftaran</h1>
           <p className="text-white/90 text-lg">
           Pendaftaran Khusus MK Kuota hanya 50 Orang, otomatis close jika sudah memenuhi Kuota
@@ -22,8 +22,8 @@ export default function PendaftaranPage() {
         </div>
 
         {/* Registration Form */}
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-sm p-8 border mb-12">
-          <h2 className="text-2xl font-bold mb-6 text-center">Form Pendaftaran</h2>
+        <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-gray-900/50 p-8 border dark:border-gray-700 mb-12">
+          <h2 className="text-2xl font-bold mb-6 text-center text-gray-900 dark:text-white">Form Pendaftaran</h2>
           
           {/* Iframe Registration Form */}
           <div className="relative w-full" style={{ height: '500px' }}>
@@ -45,37 +45,37 @@ export default function PendaftaranPage() {
 
         {/* Benefits */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white rounded-lg shadow-sm p-6 text-center border">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
-              <FontAwesomeIcon icon={faGift} className="h-6 w-6 text-blue-600" />
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-gray-900/50 p-6 text-center border dark:border-gray-700">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/50">
+              <FontAwesomeIcon icon={faGift} className="h-6 w-6 text-blue-600 dark:text-blue-400" />
             </div>
-            <h3 className="font-bold mb-2">Bonus Selamat Datang</h3>
-            <p className="text-sm text-gray-600">
+            <h3 className="font-bold mb-2 text-gray-900 dark:text-white">Bonus Selamat Datang</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               Dapatkan berbagai bonus selamat datang dari kami
             </p>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-6 text-center border">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
-              <FontAwesomeIcon icon={faMoneyBillWave} className="h-6 w-6 text-blue-600" />
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-gray-900/50 p-6 text-center border dark:border-gray-700">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/50">
+              <FontAwesomeIcon icon={faMoneyBillWave} className="h-6 w-6 text-blue-600 dark:text-blue-400" />
             </div>
-            <h3 className="font-bold mb-2">Harga Terbaik</h3>
-            <p className="text-sm text-gray-600">
+            <h3 className="font-bold mb-2 text-gray-900 dark:text-white">Harga Terbaik</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               Nikmati harga pulsa dan kuota yang kompetitif
             </p>
           </div>
-          <div className="bg-white rounded-lg shadow-sm p-6 text-center border">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100">
-              <FontAwesomeIcon icon={faBolt} className="h-6 w-6 text-blue-600" />
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-gray-900/50 p-6 text-center border dark:border-gray-700">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/50">
+              <FontAwesomeIcon icon={faBolt} className="h-6 w-6 text-blue-600 dark:text-blue-400" />
             </div>
-            <h3 className="font-bold mb-2">Transaksi Cepat</h3>
-            <p className="text-sm text-gray-600">
+            <h3 className="font-bold mb-2 text-gray-900 dark:text-white">Transaksi Cepat</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               Proses transaksi dalam hitungan detik
             </p>
           </div>
         </div>
 
         {/* CTA */}
-        <div className="text-center bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12">
+        <div className="text-center bg-[#2373B6] dark:bg-[#1e3a8a] rounded-2xl p-12">
           <h2 className="text-3xl font-bold text-white mb-4">
             Butuh Bantuan Pendaftaran?
           </h2>

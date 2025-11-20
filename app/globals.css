@@ -32,9 +32,20 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    
+    /* Dark mode color adjustments */
+    --primary-50: #1e3a8a;
+    --primary-100: #1e40af;
+    --primary-200: #1d4ed8;
+    --primary-300: #2373B6;
+    --primary-400: #3b82f6;
+    --primary-500: #60a5fa;
+    --primary-600: #93c5fd;
+    --primary-700: #bfdbfe;
+    --primary-800: #dbeafe;
+    --primary-900: #eff6ff;
   }
 }
-
 body {
   color: var(--foreground);
   background: var(--background);

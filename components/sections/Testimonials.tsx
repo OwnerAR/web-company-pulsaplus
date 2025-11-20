@@ -64,21 +64,21 @@ export function Testimonials() {
   };
 
   return (
-    <section className="bg-gradient-to-br from-primary-50 to-primary-100 py-20">
+    <section className="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-gray-900 dark:to-gray-800 py-20">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl dark:shadow-gray-900/50 p-8 md:p-12 relative">
             <div className="text-center mb-8">
-              <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-100 shadow-primary">
-                <FontAwesomeIcon icon={faQuoteLeft} className="h-8 w-8 text-primary-600" />
+              <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900/50 shadow-primary">
+                <FontAwesomeIcon icon={faQuoteLeft} className="h-8 w-8 text-primary-600 dark:text-primary-400" />
               </div>
-              <h3 className="text-2xl font-bold mb-2">
+              <h3 className="text-2xl font-bold mb-2 text-gray-900 dark:text-white">
                 {testimonials[currentIndex].name}
               </h3>
-              <p className="text-gray-600">{testimonials[currentIndex].role}</p>
+              <p className="text-gray-600 dark:text-gray-300">{testimonials[currentIndex].role}</p>
             </div>
 
-            <p className="text-gray-700 text-lg text-center mb-8 italic">
+            <p className="text-gray-700 dark:text-gray-300 text-lg text-center mb-8 italic">
               &ldquo;{testimonials[currentIndex].content}&rdquo;
             </p>
 
@@ -105,7 +105,7 @@ export function Testimonials() {
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   className={`h-2 rounded-full transition-all ${
-                    index === currentIndex ? "w-8 bg-blue-600" : "w-2 bg-gray-300"
+                    index === currentIndex ? "w-8 bg-blue-600 dark:bg-blue-400" : "w-2 bg-gray-300 dark:bg-gray-600"
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
