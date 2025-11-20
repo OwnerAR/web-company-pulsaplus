@@ -26,10 +26,12 @@ export function HeroApp() {
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl sm:text-5xl font-bold text-black dark:text-white mb-6">
-              Aplikasi Pulsa Plus
+              Pulsa Plus Retail
             </h1>
             <p className="text-lg text-gray-700 dark:text-gray-300 mb-8">
-              Bersama Pulsa Plus, tambahkan produk, dorong penjualan, tingkatkan penghasilan.
+              Bersama Pulsa Plus, segera daftar sebagai agen retail dan dapatkan penghasilan tambahan.
+              Layanan retail terlengkap se-Indonesia.
+              Pilih produk yang anda inginkan dan dapatkan penghasilan tambahan.
             </p>
             <Link
               href={appURL || "#"}

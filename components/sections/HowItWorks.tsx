@@ -37,7 +37,7 @@ export function HowItWorks() {
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
               Distributor Agen Pulsa, Data, Ewallet, Produk Digital, terlengkap se-Indonesia. 
-              Dengan Pulsa Plus Payment dapatkan penghasilan tambahan melimpah
+              Dengan Pulsa Plus dapatkan penghasilan tambahan melimpah
             </p>
 
             <div className="space-y-6 mb-8">
