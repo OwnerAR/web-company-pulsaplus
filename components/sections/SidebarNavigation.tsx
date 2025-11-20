@@ -1,11 +1,28 @@
 'use client'
 
+import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faBook, faPlug, faKey, faCode } from "@fortawesome/free-solid-svg-icons";
+import { faBook, faPlug, faKey, faCode, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function SidebarNavigation() {
   const csWA = process.env.NEXT_PUBLIC_CONTACT_WA;
+  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setIsOpen(true); // Always open on desktop
+      }
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
 
   const apiDocsSections = [
@@ -86,8 +103,66 @@ export function SidebarNavigation() {
   };
 
   return (
-    <aside className="w-80 bg-white dark:bg-gray-800 shadow-xl dark:shadow-gray-900/50 border-r border-gray-200 dark:border-gray-700 h-screen overflow-y-auto sticky top-0">
-      <div className="p-6">
+    <>
+      {/* Mobile Toggle Button - Centered on Left Side with Slide Effect */}
+      <motion.div
+        className="md:hidden fixed top-1/2 -translate-y-1/2 left-0 z-50"
+      >
+        <motion.button
+          onClick={() => setIsOpen(!isOpen)}
+          whileHover={{ scale: 1.1, x: 4 }}
+          whileTap={{ scale: 0.95 }}
+          drag="x"
+          dragConstraints={{ left: 0, right: 60 }}
+          dragElastic={0.2}
+          onDragEnd={(event, info) => {
+            // Jika di-geser lebih dari 30px ke kanan, buka sidebar
+            if (info.offset.x > 30) {
+              setIsOpen(true);
+            }
+          }}
+          className="bg-[#2373B6] dark:bg-[#1e3a8a] text-white px-0.5 py-4 rounded-r-lg shadow-xl hover:bg-[#1d5a9a] dark:hover:bg-[#1a2f6b] transition-colors cursor-grab active:cursor-grabbing border-r-2 border-t-2 border-b-2 border-[#1d5a9a] dark:border-[#1a2f6b]"
+          aria-label="Toggle sidebar"
+        >
+          <motion.div
+            animate={{ 
+              rotate: isOpen ? 180 : 0,
+              x: isOpen ? 0 : 4
+            }}
+            transition={{ duration: 0.3 }}
+          >
+            <FontAwesomeIcon 
+              icon={faChevronRight} 
+              className="h-4 w-4"
+            />
+          </motion.div>
+        </motion.button>
+      </motion.div>
+
+      {/* Mobile Overlay */}
+      <AnimatePresence>
+        {isOpen && isMobile && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden fixed top-20 inset-x-0 bottom-0 bg-black/50 z-40"
+            onClick={() => setIsOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Sidebar */}
+      <motion.aside
+        initial={false}
+        animate={{
+          x: isMobile ? (isOpen ? 0 : -320) : 0,
+        }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="fixed md:sticky top-20 left-0 z-40 w-80 h-[calc(100vh-5rem)] bg-white dark:bg-gray-800 shadow-xl dark:shadow-gray-900/50 border-r border-gray-200 dark:border-gray-700 overflow-y-auto"
+      >
+          <div className="p-6">
 
 
         {/* API Documentation Sections */}
@@ -100,6 +175,7 @@ export function SidebarNavigation() {
                 <a
                   key={index}
                   href={item.href}
+                  onClick={() => setIsOpen(false)}
                   className={`group flex items-center gap-4 p-4 rounded-lg transition-all duration-300 ${colors.hover} hover:animate-gradient-x hover:shadow-lg dark:hover:shadow-gray-900/50 hover:-translate-y-1 hover:scale-105`}
                   onMouseEnter={(e) => {
                     const h3 = e.currentTarget.querySelector('h3');
@@ -135,6 +211,7 @@ export function SidebarNavigation() {
         </div>
 
       </div>
-    </aside>
+        </motion.aside>
+    </>
   );
 }

@@ -15,12 +15,12 @@ export const metadata: Metadata = {
 
 export default function ApiDocsPage() {
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex min-h-screen bg-gray-50 dark:bg-gray-900">
       {/* Sidebar */}
       <SidebarNavigation />
       
       {/* Main Content */}
-      <main className="flex-1 overflow-auto scroll-smooth">
+      <main className="flex-1 w-full md:ml-0 overflow-auto scroll-smooth">
         <ApiDocsClient />
       </main>
     </div>
